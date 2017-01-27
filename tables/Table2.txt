@@ -1,0 +1,8 @@
+		Clinvar Clinical Significance	
+	Classifier Output	Pathogenic	Likely Pathogenic
+No Paralogue Annotation	Pathogenic	0	8
+	Likely Pathogenic	11	36
+	Uncertain Significance	24	40
+With Paralogue Annotation	Pathogenic	0	11
+	Likely Pathogenic	15	41
+	Uncertain Significance	20	32
