@@ -1,0 +1,31 @@
+Cohort	Test	Class	Proportion
+HCM	HCM	Pathogenic	0.025
+HCM	HCM	Likely Pathogenic	0.193
+HCM	HCM	VUS	0.215
+HCM	HCM	Likely Benign	0.000
+HCM	HCM	Benign	0.567
+DCM	HCM	Pathogenic	0.000
+DCM	HCM	Likely Pathogenic	0.002
+DCM	HCM	VUS	0.143
+DCM	HCM	Likely Benign	0.003
+DCM	HCM	Benign	0.842
+HVOL	HCM	Pathogenic	0.000
+HVOL	HCM	Likely Pathogenic	0.005
+HVOL	HCM	VUS	0.091
+HVOL	HCM	Likely Benign	0.005
+HVOL	HCM	Benign	0.894
+HCM	DCM	Pathogenic	0.000
+HCM	DCM	Likely Pathogenic	0.000
+HCM	DCM	VUS	0.330
+HCM	DCM	Likely Benign	0.003
+HCM	DCM	Benign	0.667
+DCM	DCM	Pathogenic	0.000
+DCM	DCM	Likely Pathogenic	0.157
+DCM	DCM	VUS	0.236
+DCM	DCM	Likely Benign	0.004
+DCM	DCM	Benign	0.603
+HVOL	DCM	Pathogenic	0.000
+HVOL	DCM	Likely Pathogenic	0.007
+HVOL	DCM	VUS	0.228
+HVOL	DCM	Likely Benign	0.010
+HVOL	DCM	Benign	0.755
