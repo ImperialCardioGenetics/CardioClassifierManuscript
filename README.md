@@ -2,6 +2,8 @@
 
 ## Variant Curation Guidelines
 
+Please put your name in the 'Who' column before curating a variant to avoid duplication of effort.
+
 ### Functional Data
 
 Is there any solid functional data supporting a damaging effect of the mutation? In general mouse/rat models, studies using tissue biopsies or RNA studies assessing affects of splicing variants are good. Cell assays are often less likely to represent in vivo effects. Generally use common sense - do you believe it?
