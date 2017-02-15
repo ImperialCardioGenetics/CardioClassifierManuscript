@@ -1,0 +1,85 @@
+Disease	Gene	VariantCoding	VariantProtein	VariantType	CaseCount	Who	FunctionalDataY/N	FunctionalReference	SegregationDataY/N	SegregationStrength	SegregationReference
+HCM	MYBPC3	c.1504C>T	p.R502W	missense	104						
+HCM	MYBPC3	c.772G>A	p.E258K	missense	68						
+HCM	MYBPC3	c.2373_2374insG	p.Trp792ValfsTer41	frameshift	66						
+HCM	MYBPC3	c.1624G>C	p.E542Q	missense	41						
+HCM	MYBPC3	c.1928-2A>G		essential splice site	30						
+HCM	MYBPC3	c.655G>C	p.V219L	missense	26						
+HCM	MYBPC3	c.2429G>A	p.R810H	missense	19						
+HCM	MYBPC3	c.2096delC		frameshift	19						
+HCM	MYBPC3	c.2827C>T	p.R943X	nonsense	18						
+HCM	MYBPC3	c.3226_3227insT		frameshift	18						
+HCM	MYBPC3	c.2864_2865delCT		frameshift	14						
+HCM	MYBPC3	c.1484G>A	p.R495Q	missense	14						
+HCM	MYBPC3	c.1483C>G	p.R495G	missense	14						
+HCM	MYBPC3	c.3697C>T	p.Q1233X	nonsense	13						
+HCM	MYBPC3	c.2308G>A	p.D770N	missense	11						
+HCM	MYBPC3	c.442G>A	p.G148R	missense	11						
+HCM	MYBPC3	c.3330+2T>G		essential splice site	11						
+HCM	MYBPC3	c.2604_2605delinsA	p.S871fs	frameshift	10						
+HCM	MYBPC3	c.3613C>T	p.R1205W	missense	10						
+HCM	MYBPC3	c.927-2A>G		essential splice site	10						
+HCM	MYBPC3	c.3771C>A	p.N1257K	missense	9						
+HCM	MYBPC3	c.2309-2A>G		essential splice site	9						
+HCM	MYBPC3	c.3190+2T>G		essential splice site	9						
+HCM	MYBPC3	c.3627+1G>A		essential splice site	8						
+HCM	MYBPC3	c.1505G>A	p.R502Q	missense	8						
+HCM	MYBPC3	c.2490_2491insT	p.His831SerfsTer2	frameshift	8						
+HCM	MYBPC3	c.2905+1G>A		essential splice site	7						
+HCM	MYBPC3	c.2670G>A	p.W890X	nonsense	7						
+HCM	MYBPC3	c.2573G>A	p.S858N	missense	6						
+HCM	MYBPC3	c.2459G>A	p.R820Q	missense	6						
+HCM	MYBPC3	c.710A>C	p.Y237S	missense	6						
+HCM	MYBPC3	c.3065G>C	p.R1022P	missense	6						
+HCM	MYH7	c.1988G>A	p.R663H	missense	37						
+HCM	MYH7	c.2389G>A	p.A797T	missense	36						
+HCM	MYH7	c.1357C>T	p.R453C	missense	23						
+HCM	MYH7	c.1816G>A	p.V606M	missense	22						
+HCM	MYH7	c.1750G>C	p.G584R	missense	22						
+HCM	MYH7	c.2722C>G	p.L908V	missense	21						
+HCM	MYH7	c.2609G>A	p.R870H	missense	16						
+HCM	MYH7	c.5135G>A	p.R1712Q	missense	16						
+HCM	MYH7	c.1208G>A	p.R403Q	missense	15						
+HCM	MYH7	c.2539A>G	p.K847E	missense	14						
+HCM	MYH7	c.2221G>T	p.G741W	missense	13						
+HCM	MYH7	c.2167C>T	p.R723C	missense	13						
+HCM	MYH7	c.1063G>A	p.A355T	missense	13						
+HCM	MYH7	c.2156G>A	p.R719Q	missense	12						
+HCM	MYH7	c.4130C>T	p.T1377M	missense	12						
+HCM	MYH7	c.2717A>G	p.D906G	missense	11						
+HCM	MYH7	c.2681A>G	p.E894G	missense	11						
+HCM	MYH7	c.2207T>C	p.I736T	missense	11						
+HCM	MYH7	c.1207C>T	p.R403W	missense	10						
+HCM	MYH7	c.2155C>T	p.R719W	missense	10						
+HCM	MYH7	c.2770G>A	p.E924K	missense	9						
+HCM	MYH7	c.1987C>T	p.R663C	missense	8						
+HCM	MYH7	c.2348G>A	p.R783H	missense	8						
+HCM	MYH7	c.715G>A	p.D239N	missense	7						
+HCM	MYH7	c.2146G>A	p.G716R	missense	7						
+HCM	MYH7	c.4135G>A	p.A1379T	missense	7						
+HCM	MYH7	c.428G>A	p.R143Q	missense	7						
+HCM	MYH7	c.2302G>A	p.G768R	missense	7						
+HCM	MYH7	c.3158G>A	p.R1053Q	missense	7						
+HCM	MYH7	c.1370T>C	p.I457T	missense	6						
+HCM	MYH7	c.4066G>A	p.E1356K	missense	6						
+HCM	MYH7	c.2779G>A	p.E927K	missense	6						
+HCM	TNNI3	c.433C>T	p.R145W	missense	13						
+HCM	TNNI3	c.485G>A	p.R162Q	missense	12						
+HCM	TNNI3	c.470C>T	p.A157V	missense	11						
+HCM	TNNI3	c.422G>A	p.R141Q	missense	11						
+HCM	TNNI3	c.484C>T	p.R162W	missense	9						
+HCM	TNNI3	c.586G>A	p.D196N	missense	6						
+HCM	TNNT2	c.487_489delGAG		inframe	14						
+HCM	TNNT2	c.236T>A	p.I79N	missense	10						
+HCM	TNNT2	c.274C>T	p.R92W	missense	8						
+HCM	TNNT2	c.856C>T	p.R286C	missense	6						
+HCM	TNNT2	c.833G>C	p.R278P	missense	6						
+HCM	TPM1	c.574G>A	p.E192K	missense	13						
+HCM	TPM1	c.523G>A	p.D175N	missense	8						
+HCM	MYL2	c.173G>A	p.R58Q	missense	7						
+HCM	GLA	c.644A>G	p.N215S	missense	13						
+DCM	TNNT2	c.629_631delAGA		inframe	18						
+DCM	TNNT2	c.421C>T	p.R141W	missense	6						
+ARVC	PKP2	c.2146-1G>C		essential splice site	24						
+ARVC	PKP2	c.2197_2202delinsG	p.His733Alafs*8	frameshift	16						
+ARVC	PKP2	c.2489+1G>A		essential splice site	8						
