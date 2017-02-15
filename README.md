@@ -21,7 +21,7 @@ Has the variant been reported to have arrisen de novo (not seen in either parent
 ### Resources 
 
 Use the following:
-Google - search for gene + either p. or c. number
-ClinVar - Gene:c.number
-PubMed - search for gene + either p. or c. number
-ICC MUTATIONS
+- Google - search for gene + either p. or c. number
+- ClinVar - Gene:c.number
+- PubMed - search for gene + either p. or c. number
+- ICC MUTATIONS
