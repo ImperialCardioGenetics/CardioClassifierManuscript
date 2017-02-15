@@ -1,0 +1,6 @@
+Feature	Description	OtherTools
+Collates computational data from multiple sources	CardioClassifier encorporates data retrieved from a multitude of different databases, tools and cohorts as well as links out to other resources useful in variant interpretation	Alamut, InterVar
+Formatted for use against the ACMG/AMP rules	CardioClassifier allows visualisation of the ACMG/AMP rules and has built in logic to calculate pathogenicity according to the guidelines	InterVar, ClinGen pathogenicity calculator
+Automated retrieval of computational data	CardioClassifier automates annotation against 14 of the ACMG/AMP rules that can be computationally predicted	InterVar
+Expertly curated gene and disease specific data and thresholds	We have used expert knowledge to define thresholds and decision values for all 14 computationally annotated rules in a gene- and disease- specific manner.	-
+Incorporation of disease and control cohorts to aid annotation and filtering	CardioClassifier encorporates three highly curated datasets relating to case and control cohorts. These allow us to both annotate candidate variants and filter out errors/common variants not captured in publically available population cohorts.	-
