@@ -1,18 +1,18 @@
 Disease	Gene	VariantCoding	VariantProtein	VariantType	CaseCount	Who	FunctionalDataY/N	FunctionalNotes	FunctionalReference	SegregationDataY/N	SegregationStrength	SegregationNotes	SegregationReference	DeNovoY/N	DeNovoPatMatConfirmed	DeNovoReference	Notes
-HCM	MYBPC3	c.1504C>T	p.R502W	missense	104												
-HCM	MYBPC3	c.772G>A	p.E258K	missense	68												
-HCM	MYBPC3	c.2373_2374insG	p.Trp792ValfsTer41	frameshift	66												
-HCM	MYBPC3	c.1624G>C	p.E542Q	missense	41												
-HCM	MYBPC3	c.1928-2A>G		essential splice site	30												
-HCM	MYBPC3	c.655G>C	p.V219L	missense	26												
-HCM	MYBPC3	c.2429G>A	p.R810H	missense	19												
-HCM	MYBPC3	c.2096delC		frameshift	19												
-HCM	MYBPC3	c.2827C>T	p.R943X	nonsense	18												
-HCM	MYBPC3	c.3226_3227insT		frameshift	18												
-HCM	MYBPC3	c.2864_2865delCT		frameshift	14												
-HCM	MYBPC3	c.1484G>A	p.R495Q	missense	14												
-HCM	MYBPC3	c.1483C>G	p.R495G	missense	14												
-HCM	MYBPC3	c.3697C>T	p.Q1233X	nonsense	13												
+HCM	MYBPC3	c.1504C>T	p.R502W	missense	104 AW												
+HCM	MYBPC3	c.772G>A	p.E258K	missense	68  AW												
+HCM	MYBPC3	c.2373_2374insG	p.Trp792ValfsTer41	frameshift	66  AW												
+HCM	MYBPC3	c.1624G>C	p.E542Q	missense	41  AW												
+HCM	MYBPC3	c.1928-2A>G		essential splice site	30  AW										
+HCM	MYBPC3	c.655G>C	p.V219L	missense	26  AW												
+HCM	MYBPC3	c.2429G>A	p.R810H	missense	19  AW												
+HCM	MYBPC3	c.2096delC		frameshift	19  AW												
+HCM	MYBPC3	c.2827C>T	p.R943X	nonsense	18  AW												
+HCM	MYBPC3	c.3226_3227insT		frameshift	18  AW												
+HCM	MYBPC3	c.2864_2865delCT		frameshift	14  AW												
+HCM	MYBPC3	c.1484G>A	p.R495Q	missense	14  AW												
+HCM	MYBPC3	c.1483C>G	p.R495G	missense	14  AW												
+HCM	MYBPC3	c.3697C>T	p.Q1233X	nonsense	13  AW												
 HCM	MYBPC3	c.2308G>A	p.D770N	missense	11												
 HCM	MYBPC3	c.442G>A	p.G148R	missense	11												
 HCM	MYBPC3	c.3330+2T>G		essential splice site	11												
