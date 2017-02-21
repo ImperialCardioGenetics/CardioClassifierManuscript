@@ -31,21 +31,21 @@ HCM	MYBPC3	c.2573G>A	p.S858N	missense	6	WM											Reported as uncertain signi
 HCM	MYBPC3	c.2459G>A	p.R820Q	missense	6	WM				Y		segregated with disease in 6 affected relatives with HCM from 3 families	 Konno 2003, Nanni 2003, LMM unpublished data				
 HCM	MYBPC3	c.710A>C	p.Y237S	missense	6	WM				Y		segregated with disease in 10 affected relatives from 2 families	GeneDx pers comm., LMM unpublished data				
 HCM	MYBPC3	c.3065G>C	p.R1022P	missense	6	WM				Y		This sequence change segregated with the HCM phenotype in four affected individuals. In the same family, however, there were two young individuals with suspected HCM who did not inherit this sequence change which is suggestive of a potential alternate primary cause for disease in this family.	PMID: 20433692				
-HCM	MYH7	c.1988G>A	p.R663H	missense	37												
-HCM	MYH7	c.2389G>A	p.A797T	missense	36												
-HCM	MYH7	c.1357C>T	p.R453C	missense	23												
-HCM	MYH7	c.1816G>A	p.V606M	missense	22												
-HCM	MYH7	c.1750G>C	p.G584R	missense	22												
-HCM	MYH7	c.2722C>G	p.L908V	missense	21												
-HCM	MYH7	c.2609G>A	p.R870H	missense	16												
-HCM	MYH7	c.5135G>A	p.R1712Q	missense	16												
-HCM	MYH7	c.1208G>A	p.R403Q	missense	15												
-HCM	MYH7	c.2539A>G	p.K847E	missense	14												
-HCM	MYH7	c.2221G>T	p.G741W	missense	13												
-HCM	MYH7	c.2167C>T	p.R723C	missense	13												
-HCM	MYH7	c.1063G>A	p.A355T	missense	13												
-HCM	MYH7	c.2156G>A	p.R719Q	missense	12												
-HCM	MYH7	c.4130C>T	p.T1377M	missense	12												
+HCM	MYH7	c.1988G>A	p.R663H	missense	37 HN												
+HCM	MYH7	c.2389G>A	p.A797T	missense	36 HN												
+HCM	MYH7	c.1357C>T	p.R453C	missense	23 HN											
+HCM	MYH7	c.1816G>A	p.V606M	missense	22 HN												
+HCM	MYH7	c.1750G>C	p.G584R	missense	22 HN												
+HCM	MYH7	c.2722C>G	p.L908V	missense	21 HN												
+HCM	MYH7	c.2609G>A	p.R870H	missense	16 HN												
+HCM	MYH7	c.5135G>A	p.R1712Q	missense	16 HN												
+HCM	MYH7	c.1208G>A	p.R403Q	missense	15 HN												
+HCM	MYH7	c.2539A>G	p.K847E	missense	14 HN												
+HCM	MYH7	c.2221G>T	p.G741W	missense	13 HN												
+HCM	MYH7	c.2167C>T	p.R723C	missense	13 HN												
+HCM	MYH7	c.1063G>A	p.A355T	missense	13 HN												
+HCM	MYH7	c.2156G>A	p.R719Q	missense	12 HN												
+HCM	MYH7	c.4130C>T	p.T1377M	missense	12 HN												
 HCM	MYH7	c.2717A>G	p.D906G	missense	11												
 HCM	MYH7	c.2681A>G	p.E894G	missense	11												
 HCM	MYH7	c.2207T>C	p.I736T	missense	11												
