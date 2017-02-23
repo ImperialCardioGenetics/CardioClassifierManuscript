@@ -20,16 +20,16 @@ HCM	MYBPC3	c.2604_2605delinsA	p.S871fs	frameshift	10	WM
 HCM	MYBPC3	c.3613C>T	p.R1205W	missense	10	WM											Variant classified as VUS in ClinVar as has been seen  1 individual with HCM (Bos et al., 2014). No known segregation data available.
 HCM	MYBPC3	c.927-2A>G		essential splice site	10	WM				Y		segregated with disease in >10 affected relatives	Nimura 1998, Richard 2003, Ehlermann 2008				
 HCM	MYBPC3	c.3771C>A	p.N1257K	missense	9	WM											Variant classified as VUS in ClinVar but has been seen in multiple individuals with HCM. No known segregation data available.
-HCM	MYBPC3	c.2309-2A>G		essential splice site	9	WM				Y		segregated with disease in two affected family members	SCV000059130.4				
-HCM	MYBPC3	c.3190+2T>G		essential splice site	9	WM				Y		segregated with disease in one affected relative	SCV000059214.4				
+HCM	MYBPC3	c.2309-2A>G		essential splice site	9	WM				Y		segregated with disease in two affected family members	ClinVar:SCV000059130.4				
+HCM	MYBPC3	c.3190+2T>G		essential splice site	9	WM				Y		segregated with disease in one affected relative	ClinVar:SCV000059214.4				
 HCM	MYBPC3	c.3627+1G>A		essential splice site	8	WM	Y	RNA studies have shown that it disrupts splicing	 Niimura 1998								
 HCM	MYBPC3	c.1505G>A	p.R502Q	missense	8	WM				Y		9 affected family members from two unrelated families	Nimura et al. (1998)				
 HCM	MYBPC3	c.2490_2491insT	p.His831SerfsTer2	frameshift	8	WM				Y		segregation with disease in at least one affected relative 	ClinVar SCV000059143.4; Landrum et al., 2016				
-HCM	MYBPC3	c.2905+1G>A		essential splice site	7	WM	Y	RNA studies which evaluated the effect of this splice site change reported in frame skipping of exon 27 and the generation of an abnormal protein product 	PMID: 11499719, 25031304	Y		segregated with disease in 2 affected relative in one family 	Kimura 1997, Erdmann 2001, LMM unpublished data				
-HCM	MYBPC3	c.2670G>A	p.W890X	nonsense	7	WM				Y		segregated with disease in 4 affected relatives	 Van Driest 2004, Ehlermann 2008, LMM unpublished data				
+HCM	MYBPC3	c.2905+1G>A		essential splice site	7	WM	Y	RNA studies which evaluated the effect of this splice site change reported in frame skipping of exon 27 and the generation of an abnormal protein product 	PMID: 11499719, 25031304	Y		segregated with disease in 2 affected relative in one family 	Kimura 1997, Erdmann 2001, LMM unpublished data (ClinVar:SCV000059187.4)				
+HCM	MYBPC3	c.2670G>A	p.W890X	nonsense	7	WM				Y		segregated with disease in 4 affected relatives	 Van Driest 2004, Ehlermann 2008, LMM unpublished data (ClinVar:SCV000059169.4)				
 HCM	MYBPC3	c.2573G>A	p.S858N	missense	6	WM											Reported as uncertain significance in ClinVar as has not been reported independently of a second pathogenic variant
-HCM	MYBPC3	c.2459G>A	p.R820Q	missense	6	WM				Y		segregated with disease in 6 affected relatives with HCM from 3 families	 Konno 2003, Nanni 2003, LMM unpublished data				
-HCM	MYBPC3	c.710A>C	p.Y237S	missense	6	WM				Y		segregated with disease in 10 affected relatives from 2 families	GeneDx pers comm., LMM unpublished data				
+HCM	MYBPC3	c.2459G>A	p.R820Q	missense	6	WM				Y		segregated with disease in 6 affected relatives with HCM from 3 families	 Konno 2003, Nanni 2003, LMM unpublished data (ClinVar:SCV000198854.3)				
+HCM	MYBPC3	c.710A>C	p.Y237S	missense	6	WM				Y		segregated with disease in 10 affected relatives from 2 families	GeneDx pers comm., LMM unpublished data (ClinVar:SCV000059314.4)				
 HCM	MYBPC3	c.3065G>C	p.R1022P	missense	6	WM				Y		This sequence change segregated with the HCM phenotype in four affected individuals. In the same family, however, there were two young individuals with suspected HCM who did not inherit this sequence change which is suggestive of a potential alternate primary cause for disease in this family.	PMID: 20433692				
 HCM	MYH7	c.1988G>A	p.R663H	missense	37	HN											
 HCM	MYH7	c.2389G>A	p.A797T	missense	36	HN											
@@ -46,7 +46,7 @@ HCM	MYH7	c.2167C>T	p.R723C	missense	13	HN
 HCM	MYH7	c.1063G>A	p.A355T	missense	13	HN											
 HCM	MYH7	c.2156G>A	p.R719Q	missense	12	HN											
 HCM	MYH7	c.4130C>T	p.T1377M	missense	12	HN											
-HCM	MYH7	c.2717A>G	p.D906G	missense	11												
+HCM	MYH7	c.2717A>G	p.D906G	missense	11	WM				Y		segregated with disease in >10 affected relatives from 2 families, although reduced penetrance was noted in both families (Ho 2002, Alpert 2005, Arad 2005, Kapplinger 2014, LMM unpublished data)	 Ho 2002, Alpert 2005, Arad 2005, Kapplinger 2014, LMM unpublished data				
 HCM	MYH7	c.2681A>G	p.E894G	missense	11												
 HCM	MYH7	c.2207T>C	p.I736T	missense	11												
 HCM	MYH7	c.1207C>T	p.R403W	missense	10												
@@ -61,8 +61,8 @@ HCM	MYH7	c.428G>A	p.R143Q	missense	7
 HCM	MYH7	c.2302G>A	p.G768R	missense	7												
 HCM	MYH7	c.3158G>A	p.R1053Q	missense	7												
 HCM	MYH7	c.1370T>C	p.I457T	missense	6												
-HCM	MYH7	c.4066G>A	p.E1356K	missense	6												
-HCM	MYH7	c.2779G>A	p.E927K	missense	6												
+HCM	MYH7	c.4066G>A	p.E1356K	missense	6	WM	Y	Functional studies indicate that the presence of p.Glu1356Lys thermodynamically destabilizes the resulting myosin heavy chain protein and affecting its ability to form filaments and to function properly	Armel et al. 2009	Y		variant segregated with disease, although specifics are not given	Brito et al. 2011				
+HCM	MYH7	c.2779G>A	p.E927K	missense	6	WM				Y		one Caucasian HCM proband and segregated with disease in one affected family member	ClinVar:SCV000059476.4				
 HCM	TNNI3	c.433C>T	p.R145W	missense	13	Nicky	Y	Increased force generation in muscle fibres from transgenic mice	Wen Y et al. 2009	Y	Strong	Segregated in >15 affected family members	ClinVar:SCV000059946.4				
 HCM	TNNI3	c.485G>A	p.R162Q	missense	12	Nicky											
 HCM	TNNI3	c.470C>T	p.A157V	missense	11	Nicky											
