@@ -1,21 +1,21 @@
 Disease	Gene	VariantCoding	VariantProtein	VariantType	CaseCount	Who	FunctionalDataY/N	FunctionalNotes	FunctionalReference	SegregationDataY/N	SegregationStrength	SegregationNotes	SegregationReference	DeNovoY/N	DeNovoPatMatConfirmed	DeNovoReference	Notes
-HCM	MYBPC3	c.1504C>T	p.R502W	missense	104	AW											
-HCM	MYBPC3	c.772G>A	p.E258K	missense	68	AW											
-HCM	MYBPC3	c.2373_2374insG	p.Trp792ValfsTer41	frameshift	66	AW											
-HCM	MYBPC3	c.1624G>C	p.E542Q	missense	41	AW											
-HCM	MYBPC3	c.1928-2A>G		essential splice site	30	AW											
-HCM	MYBPC3	c.655G>C	p.V219L	missense	26	AW											
-HCM	MYBPC3	c.2429G>A	p.R810H	missense	19	AW											
-HCM	MYBPC3	c.2096delC		frameshift	19	AW											
-HCM	MYBPC3	c.2827C>T	p.R943X	nonsense	18	AW											
-HCM	MYBPC3	c.3226_3227insT		frameshift	18	AW											
-HCM	MYBPC3	c.2864_2865delCT		frameshift	14	AW											
-HCM	MYBPC3	c.1484G>A	p.R495Q	missense	14	AW											
-HCM	MYBPC3	c.1483C>G	p.R495G	missense	14	AW											
-HCM	MYBPC3	c.3697C>T	p.Q1233X	nonsense	13	AW											
-HCM	MYBPC3	c.2308G>A	p.D770N	missense	11	AW											
-HCM	MYBPC3	c.442G>A	p.G148R	missense	11	AW											
-HCM	MYBPC3	c.3330+2T>G		essential splice site	11	AW											
+HCM	MYBPC3	c.1504C>T	p.R502W	missense	104	AW		check cardiodb					SCV000059054.4(clinvar)				
+HCM	MYBPC3	c.772G>A	p.E258K	missense	68	AW	Y	MyBP-C reduces  contractile force in cardiac tissue and accelerates twitch kinetics by disrupting the cMyBP-C and myosin S2 interaction	J Gen Physiol. 2013 142(3):241-55. doi: 10.1085/jgp.201311018.	Y			SCV000059319.4(clinvar)				
+HCM	MYBPC3	c.2373_2374insG	p.Trp792ValfsTer41	frameshift	66	AW	Y	predicted to cause a frameshift, which alters the protein’s amino acid sequence beginning at position 792 and leads to a premature termination codon 41 amino acids downstream and functional studies support that this variant leads to a loss-of-function	Moolman 2000	Y	strong	multiple familes	SCV000059136.4(clinvar)				
+HCM	MYBPC3	c.1624G>C	p.E542Q	missense	41	AW		predicted to impact splicing, which was confirmed by in vitro studies	Carrier 1997, Crehalet 2012			segregated with disease in 6 affected members in 3 families	SCV000059072.4(clinvar)				
+HCM	MYBPC3	c.1928-2A>G		essential splice site	30	AW	Y	leads to aberrant splicing and a premature stop codon at position 661		N		segregated with disease in >20 affected relatives across several families	SCV000059101.4(clinvar)				
+HCM	MYBPC3	c.655G>C	p.V219L	missense	26	AW	N			Y		segregated with disease in one affected relative	SCV000059311(clinvar)				
+HCM	MYBPC3	c.2429G>A	p.R810H	missense	19	AW	N					 segregated with disease in 3 affected relatives from 3 families 	SCV000256161.1(clinvar)				
+HCM	MYBPC3	c.2096delC		frameshift	19	AW		This variant is predicted to cause a frameshift, which alters the protein’s amino acid sequence beginning at position 699 and leads to a premature termination codon 55 amino acids downstream. This alteration is then predicted to lead to a truncated or absent protein		Y		segregated in 5 affected family members 	SCV000059112.4(clinvar)				
+HCM	MYBPC3	c.2827C>T	p.R943X	nonsense	18	AW		leads to a premature termination codon at position 943, which is predicted to lead to a truncated or absent protein	Deprez - ‎2006, also clinvar summary	Y		segregated with disease in 4 affected relatives in 4 families	SCV000059178.4(clinvar)				
+HCM	MYBPC3	c.3226_3227insT		frameshift	18	AW		 predicted to alter the protein’s amino acid sequence beginning at position 1076 and lead to a premature termination codon 6 amino acids downstream. This alteration is then predicted to lead to a truncated or absent protein	clinvar summary	Y		segregated with disease in 6 affected relatives from 4 families	SCV000059217.4(clinvar)				
+HCM	MYBPC3	c.2864_2865delCT		frameshift	14	AW		 predicted to alter the protein’s amino acid sequence beginning at position 955 and lead to a premature termination codon 95 amino acids downstream. This alteration is then predicted to lead to a truncated or absent protein	clinvar summary	Y	significant	segregated (>10 meioses) with disease across multiple families	SCV000256180.1(clinvar)				
+HCM	MYBPC3	c.1484G>A	p.R495Q	missense	14	AW	Y	in vitro heightened expression of MYBPC3 in carriers of the variant	Helms 2014			Family studies support a pathogenic role though the overall data suggests reduced penetrance	SCV000198912.3(clinvar)				
+HCM	MYBPC3	c.1483C>G	p.R495G	missense	14	AW		check cardiodb									
+HCM	MYBPC3	c.3697C>T	p.Q1233X	nonsense	13	AW		leads to a premature stop codon at position 1233, removing the C-terminal 42 amino acids,predicted to lead to a truncated or absent protein	clinvar summary			segregated with disease in >10 affected relatives 	SCV000059261.4(clinvar)				
+HCM	MYBPC3	c.2308G>A	p.D770N	missense	11	AW	N	check Girolami 2006				segregated with disease in 1 affected relative 	SCV000059128.4(clinvar)				
+HCM	MYBPC3	c.442G>A	p.G148R	missense	11	AW		check cardiodb									
+HCM	MYBPC3	c.3330+2T>G		essential splice site	11	AW		demonstrated to cause abnormal splicing that resulted in the skipping of exon 30, which is predicted to lead to a frameshift beginning at codon 1064 and create a premature stop codon 38 amino acids downstream	Xin 2007, Morita 2008, Helms 2014			segregated with disease in 1 affected relative 	SCV000059230.4(clinvar)				
 HCM	MYBPC3	c.2604_2605delinsA	p.S871fs	frameshift	10	WM											
 HCM	MYBPC3	c.3613C>T	p.R1205W	missense	10	WM											Variant classified as VUS in ClinVar as has been seen  1 individual with HCM (Bos et al., 2014). No known segregation data available.
 HCM	MYBPC3	c.927-2A>G		essential splice site	10	WM				Y		segregated with disease in >10 affected relatives	Nimura 1998, Richard 2003, Ehlermann 2008				
