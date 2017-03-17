@@ -31,21 +31,21 @@ HCM	MYBPC3	c.2573G>A	p.S858N	missense	6	WM											Reported as uncertain signi
 HCM	MYBPC3	c.2459G>A	p.R820Q	missense	6	WM				Y		segregated with disease in 6 affected relatives with HCM from 3 families	 Konno 2003, Nanni 2003, LMM unpublished data (ClinVar:SCV000198854.3)				
 HCM	MYBPC3	c.710A>C	p.Y237S	missense	6	WM				Y		segregated with disease in 10 affected relatives from 2 families	GeneDx pers comm., LMM unpublished data (ClinVar:SCV000059314.4)				
 HCM	MYBPC3	c.3065G>C	p.R1022P	missense	6	WM				Y		This sequence change segregated with the HCM phenotype in four affected individuals. In the same family, however, there were two young individuals with suspected HCM who did not inherit this sequence change which is suggestive of a potential alternate primary cause for disease in this family.	PMID: 20433692				
-HCM	MYH7	c.1988G>A	p.R663H	missense	37	HN											
-HCM	MYH7	c.2389G>A	p.A797T	missense	36	HN											
-HCM	MYH7	c.1357C>T	p.R453C	missense	23	HN											
-HCM	MYH7	c.1816G>A	p.V606M	missense	22	HN											
-HCM	MYH7	c.1750G>C	p.G584R	missense	22	HN											
-HCM	MYH7	c.2722C>G	p.L908V	missense	21	HN											
-HCM	MYH7	c.2609G>A	p.R870H	missense	16	HN											
-HCM	MYH7	c.5135G>A	p.R1712Q	missense	16	HN											
-HCM	MYH7	c.1208G>A	p.R403Q	missense	15	HN											
-HCM	MYH7	c.2539A>G	p.K847E	missense	14	HN											
-HCM	MYH7	c.2221G>T	p.G741W	missense	13	HN											
-HCM	MYH7	c.2167C>T	p.R723C	missense	13	HN											
-HCM	MYH7	c.1063G>A	p.A355T	missense	13	HN											
-HCM	MYH7	c.2156G>A	p.R719Q	missense	12	HN											
-HCM	MYH7	c.4130C>T	p.T1377M	missense	12	HN											
+HCM	MYH7	c.1988G>A	p.R663H	missense	37	HN	Y	Functional studies showed that this variant impacts protein function; used patient derived cells to demonstrate that R663H is strongly implicated in the dysregulation of calcium ion cycling, causing elevation of calcium ions which can induce both cellular hypertrophy and contractile arrhythmia	 Lan 2013	Y	very strong	reported in >40 individuals with HCM and was shown to segregate with disease in >25 affected relatives 	Gruver 1999, Greber-Platzer 2001, Mohiddin 2003, Richard 2003, Van Driest 2004, Song 2005, Ingles 2005, Zou 2013, Lan 2013, LMM unpublished data; PMID: 10750581, 11133230, 23290139				
+HCM	MYH7	c.2389G>A	p.A797T	missense	36	HN				Y	strong	observed in 14 families with HCM 	(Moolman 1995, Moolman-Smook 1995, Moolman-Shook 1999, Moolman-Shook 2000, Van Driest 2004, Laredo 2006, Kassem 2013, LMM unpublished data)				
+HCM	MYH7	c.1357C>T	p.R453C	missense	23	HN	Y	Experimental studies have shown that this missense change significantly decreases the maximum rate of ATP turnover with a large increase in the maximal force-generating capacity, and a higher number of cross-bridges in the sarcomere.	PMID: 15001446, 17351073, 23798412, 24344137	Y	strong	multiple families with HCM	(Solomon SD, et al., 1990; Watkins H, et al., 1992 & 1993; Ko YL, et al., 1996; Greber-Platzer S, et al., 2001); PMID: 8250038, 1552912, 1739523, 1975599				
+HCM	MYH7	c.1816G>A	p.V606M	missense	22	HN	Y	Roopnarine et al. (1998) reported that the V606M variant has a mild effect on the ATPase activity of the channel protein. Furthermore, in vitro studies by Cuda et al. (1997) demonstrated that V606M resulted in decreased actin sliding velocities.	Roopnarine et al. 1998, Cuda et al. 1997	Y		segregate with disease in multiple families 	Watkins 1992, Solomon 1993, Fananapazir 1994, Marian 1995, Richard 2003, Greber-Platzer 2001, Blair 2001, Havndrup 2001, Havndrup 2003, Ingles 2005, Jacques 2008, Zheng 2010	Y			
+HCM	MYH7	c.1750G>C	p.G584R	missense	22	HN	Y	In vitro functional studies provide some evidence that this variant may impact protein function	Fujita 1998, Wang 2003	Y	weak	weak segregation data in two families	Watkins et al 1993				
+HCM	MYH7	c.2722C>G	p.L908V	missense	21	HN	Y	in vitro motility assay and cardiac or skeletal muscle tissue from L908V heterozygous individuals, functional studies have shown that L908V increases the velocity of actin filament movement 	Palmiter et al., 2000; Alpert et al., 2005	Y		multiple families	Epstein et al., 1992; Woo et al., 2003; Alpert et al., 2005; Rodriguez et al., 2011; Pan et al., 2012				
+HCM	MYH7	c.2609G>A	p.R870H	missense	16	HN	Y	One experimental study has shown that this missense change in an in vitro motility assay moved actin filaments more slowly than control samples. In addition, studies on the structural properties of the MYH7 protein has suggested that this variant reduces the protein binding affinity	PMID: 9172070, PMID: 17192269	Y		multiple families	Nishi H, et al., 1995; Erdmann J, et al., 2003; Tanjore RR, et al., 2006; Bashyam MD, et al., 2007				
+HCM	MYH7	c.5135G>A	p.R1712Q	missense	16	HN				Y	conflicting 	This variant did not segregate with disease in one affected family member from one family (Mook 2013), but did segregate with disease in one affected individual from another family (LMM unpublished data)	Mook 2013, LMM unpublished data				
+HCM	MYH7	c.1208G>A	p.R403Q	missense	15	HN	Y	may perturb normal kinetic and mechanic assembly and function of cardiac myosin with a gain-of-function effect 	Xu Q et al., 2010; Tyska M et al., 2000	Y	strong	several large families 	PMID: 12975413, 1638703, 1975517, 23751935				
+HCM	MYH7	c.2539A>G	p.K847E	missense	14	HN	N			N							
+HCM	MYH7	c.2221G>T	p.G741W	missense	13	HN				Y		segregate with disease in affected family members, reported in multiple individuals diagnosed with HCM, segregated with disease in 4 affected relatives from 2 families	SCV000280319.1 (Arai S et al., 1995; Perrot A et al., 2005)	Y		(Arai S, et al., 1995)	
+HCM	MYH7	c.2167C>T	p.R723C	missense	13	HN	Y	One proband, a 40-year-old female, was shown by RNase protection assay to have a C-to-T transition in exon 20 at nucleotide 2253, leading to a change from arginine to cysteine at codon 723	clinvar summary	Y		segregate with disease with incomplete penetrance 	(Tesson F, et al., 1998; Richard P, et al., 2003; Girolami F, et al., 2010)	Y		(Watkins H, et al., 1992)	
+HCM	MYH7	c.1063G>A	p.A355T	missense	13	HN				Y		co-segregated with HCM in three individuals in one family,	Richard et al. (2003)				
+HCM	MYH7	c.2156G>A	p.R719Q	missense	12	HN				Y		This variant has been reported to segregate with early-onset HCM in three relatives from one Hispanic family	Consevage MW, et al., 1994				
+HCM	MYH7	c.4130C>T	p.T1377M	missense	12	HN				N							
 HCM	MYH7	c.2717A>G	p.D906G	missense	11	WM				Y		segregated with disease in >10 affected relatives from 2 families, although reduced penetrance was noted in both families (Ho 2002, Alpert 2005, Arad 2005, Kapplinger 2014, LMM unpublished data)	 Ho 2002, Alpert 2005, Arad 2005, Kapplinger 2014, LMM unpublished data				
 HCM	MYH7	c.2681A>G	p.E894G	missense	11												
 HCM	MYH7	c.2207T>C	p.I736T	missense	11												
