@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+figures/Figure*
+manuscript/manuscript.docx 
+manuscript/SupplementaryMaterial.docx 
