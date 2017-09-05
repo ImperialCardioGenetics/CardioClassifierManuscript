@@ -15,12 +15,16 @@ if(!"pander" %in% installed.packages()){
 if(!"withr" %in% installed.packages()){
   install.packages("withr")
 }
+if(!"png" %in% installed.packages()){
+  install.packages("png")
+}
 
 library(ggplot2)
 library(pander)
 library(withr)
+library(tidyr)
 library(dplyr)
-library(dplyr)
+library(png)
 
 ## Install knitcitations in this repo if not already installed
 if(!"knitcitations" %in% installed.packages()){
