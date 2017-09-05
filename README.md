@@ -1,29 +1,13 @@
 # CardioClassifierManuscript
 
-## Variant Curation Guidelines
+## ABSTRACT
 
-Please put your name in the 'Who' column before curating a variant to avoid duplication of effort.
+**Purpose**: Internationally-adopted variant interpretation guidelines from the American College of Medical Genetics and Genomics (ACMG) are generic and require disease-specific refinement. Here we developed CardioClassifier (www.cardioclassifier.org), a semi-automated decision-support tool for inherited cardiac conditions (ICCs).
 
-### Functional Data
+**Methods**: CardioClassifier integrates data retrieved from multiple sources with user-input case-specific information, through an interactive interface, to support variant interpretation. Combining disease- and gene-specific knowledge with variant observations in large cohorts of cases and controls, we refined 14 computational ACMG criteria and created three ICC-specific rules.
 
-Is there any solid functional data supporting a damaging effect of the mutation? In general mouse/rat models, studies using tissue biopsies or RNA studies assessing affects of splicing variants are good. Cell assays are often less likely to represent in vivo effects. Generally use common sense - do you believe it?
+**Results**: We benchmarked CardioClassifier on 57 expertly-curated variants and show full retrieval of all computational data, concordantly activating 87.3% of rules. A generic annotation tool identified fewer than half as many clinically-actionable variants (64/219 vs 156/219, Fisher’s *P*=1.1x10-18), with important false positives; illustrating the critical importance of disease and gene-specific annotations.
 
-Annotate Y/N in one column and note down reference(s) in the second column.
+CardioClassifier identified putatively disease-causing variants in 33.7% of 327 cardiomyopathy cases, comparable with leading ICC laboratories. Through addition of manually-curated data, variants found in over 40% of cardiomyopathy cases are fully annotated, without requiring additional user-input data.
 
-### Segregation Data
-
-Has the variant ever been reported to segregate in a family? This information could either be within a publication or a ClinVar report.
-
-Note down Y/N plus the strength of segregation - how many individuals and from how many families? And also note any publications or ClinVar submission IDs.
-
-### De novo Data
-
-Has the variant been reported to have arrisen de novo (not seen in either parent)? If yes, do they mention confirmation of maternity/paternity? Note down Y/N for these questions along with any publications or ClinVar submission IDs.
-
-### Resources 
-
-Use the following:
-- Google - search for gene + either p. or c. number
-- ClinVar - Gene:c.number
-- PubMed - search for gene + either p. or c. number
-- ICC MUTATIONS
+**Conclusion**: CardioClassifier is an ICC-specific decision-support tool that integrates expertly curated computational annotations with case-specific data to generate fast, reproducible and interactive variant pathogenicity reports, according to best practice guidelines.
