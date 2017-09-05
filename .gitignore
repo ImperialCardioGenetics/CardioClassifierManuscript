@@ -8,5 +8,6 @@ figures/SupplementaryFigure3a.png
 figures/SupplementaryFigure3b.png
 figures/SupplementaryFigure3c.png
 figures/SupplementaryFigure4.png
-manuscript/manuscript.docx 
-manuscript/SupplementaryMaterial.docx 
+manuscript/manuscript.docx
+manuscript/SupplementaryMaterial.docx
+manuscript/*.bib
