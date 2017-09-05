@@ -1,158 +1,232 @@
 ---
-title: "Using high-resolution variant frequencies to empower clinical genome interpretation"
+title: "CardioClassifier – demonstrating the power of disease- and gene-specific computational decision support for clinical genome interpretation"
 output:
 #  html_document
   word_document:
     reference_docx: newTemplate.docx
     
 bibliography: "references.bib"
-csl: "nature.csl"
+csl: "american-medical-association.csl"
 ---
 
 ```{r, echo=FALSE, include=FALSE}
+chooseCRANmirror(graphics=FALSE, ind=1)
 #load functions
 source(file.path("..","R","setup.R"))
 #create figures
-
+source(file.path("..","R","Figures.R"))
 ```
+
+**CardioClassifier – a decision-support tool for clinical variant interpretation**
 
 ```{r authors, results='asis'}
-#read.delim("../data/authors.txt")
+read.delim("../data/authors.txt") %>%
+  formatAuthors(infoText1="These authors jointly supervised this work",infoText2="Corresponding author")
 ```
 
-### AUTHORS (to include)
-
-Nicola Whiffin, Roddy Walsh, Elizabeth Edwards, Risha Govind, Mian Ahmad, Xiaolei Zhang, Rachel Buchan, Paul Barton, James Ware and Stuart Cook
+Correspondence should be addressed to:
+Dr Nicola Whiffin, Cardiovascular Genetics and Genomics, National Heart and Lung Institute, Royal Brompton Hospital Campus, Imperial College London, London, SW3 6NP; Tel: +44 20 7352 8121; Fax: +44 20 7351 8146; Email: n.whiffin@imperial.ac.uk
 
 ## ABSTRACT
 
-Recent guidelines from the American College of Medical Genetics and Genomics (ACMG) and the Association for Molecular Pathology (AMP) aim to standardise interpretation of sequence variants. Whilst these guidelines outline the key evidence types that need to be considered, there is a need to define and incorporate disease specific knowledge and thresholds. We have created Cardio Classifier, a powerful tool that aids variant interpretation across a range of inherited cardiac conditions. We use internally derived data along with an extensive collection of publically available datasets and disease/gene-specific knowledge, to pre-populate the criteria from the ACMG/AMP guidelines and output both a predicted classification and the associated evidence. This classification can be interactively refined though addition of clinical data or upload of additional user-defined annotations. 
+**Purpose**: Internationally-adopted variant interpretation guidelines from the American College of Medical Genetics and Genomics (ACMG) are generic and require disease-specific refinement. Here we developed CardioClassifier (www.cardioclassifier.org), a semi-automated decision-support tool for inherited cardiac conditions (ICCs).
 
-We have tested Cardio Classifier on a panel of 2,081 samples sequenced with the Illumina TruSight Cardio sequencing kit, and show that the annotations and classifications are specific to the disease of interest. Furthermore, using data from ClinVar we demonstrate that the tool successfully identifies true pathogenic variants. Finally, we report that 0.20% and 0.48% of individuals in the ExAC dataset have clinically reportable variants for hypertrophic and dilated cardiomyopathy respectively. We believe that Cardio Classifier represents a unique solution to the challenge of variant interpretation and that it will greatly enhance both research and clinical testing of inherited cardiac conditions. Cardio Classifier is publically available at www.cardioclassifier.org.
+**Methods**: CardioClassifier integrates data retrieved from multiple sources with user-input case-specific information, through an interactive interface, to support variant interpretation. Combining disease- and gene-specific knowledge with variant observations in large cohorts of cases and controls, we refined 14 computational ACMG criteria and created three ICC-specific rules.
 
+**Results**: We benchmarked CardioClassifier on 57 expertly-curated variants and show full retrieval of all computational data, concordantly activating 87.3% of rules. A generic annotation tool identified fewer than half as many clinically-actionable variants (64/219 vs 156/219, Fisher’s *P*=1.1x10-18), with important false positives; illustrating the critical importance of disease and gene-specific annotations.
+
+CardioClassifier identified putatively disease-causing variants in 33.7% of 327 cardiomyopathy cases, comparable with leading ICC laboratories. Through addition of manually-curated data, variants found in over 40% of cardiomyopathy cases are fully annotated, without requiring additional user-input data.
+
+**Conclusion**: CardioClassifier is an ICC-specific decision-support tool that integrates expertly curated computational annotations with case-specific data to generate fast, reproducible and interactive variant pathogenicity reports, according to best practice guidelines.
+
+Keywords: variant interpretation, inherited cardiac conditions, clinical genomics
 
 ## INTRODUCTION
 
-Inherited cardiac conditions (ICCs) represent a major worldwide health burden with a combined prevalence of ~1%. Routine genetic testing for ICCs is widespread and can be critical in confirming a diagnosis and/or dictating clinical management of patients and their relatives. 
+Inherited cardiac conditions (ICCs) represent a major health burden with a combined prevalence of ~1% `r citep("10.1007/s12265-016-9673-5")`. Genetic testing is recommended to support the management of many ICCs, with roles in diagnosis (particularly valuable for identification of at-risk relatives), prognostication, and therapeutic stratification.
 
-We recently created a comprehensive targeted sequencing panel of 174 genes associated with ICCs [ref] in a bid to increase the accessibility of clinical grade sequencing for these disorders. The major challenge in genetic testing across all domains, however, is the interpretation of the identified sequence variants and distinguishing the true pathogenic variant(s) from those that are benign bystanders.
+The principle challenge in genetic testing across all diseases is the interpretation of identified sequence variants. This requires evaluation of data from diverse sources, including clinical observations, computational data and data derived from the literature. Although existing tools aid collection of some of these data types, scientists and clinicians must often access multiple data sources whilst interpreting a single genetic variant.
 
-The American College of Medical Genetics and Genomics (ACMG) and the Association for Molecular Pathology (AMP) recently released a set of guidelines that aim to standardise variant interpretation `r citep("10.1038/gim.2015.30")`. These rules are deliberately broad, to allow adoption across the full spectrum of genetic disorders; the challenge to individual disease domains, therefore, is to incorporate both gene and disease specific knowledge, to strengthen variant interpretation. Publication of the guidelines has led to the emergence of interactive tools that aim to facilitate their adoption [refs], however, to date none of these are automated or designed to build in disease specific knowledge.
+The American College of Medical Genetics and Genomics (ACMG) and the Association for Molecular Pathology (AMP) recently released guidelines that aim to standardise variant interpretation `r citep("10.1038/gim.2015.30")`. These guidelines outline a set of evidence criteria to assess each variant against, along with how these might be weighted and combined to reach a classification. Studies have, however, shown that even when following the ACMG/AMP guidelines, interpretation can differ between different laboratories, with discordance in excess of 10% `r citep("10.1038/gim.2017.14")`. One key reason for this discordance is the structure of the ACMG/AMP guidelines, which are deliberately broad and lack specific thresholds, to allow adoption across the full spectrum of genetic disorders. As a result, the challenge to individual disease domains is to incorporate expert gene and disease-specific knowledge, to optimise variant interpretation and introduce consensus. Initiatives such as the Clinical Genome Resource (ClinGen) `r citep("10.1056/NEJMsr1406261")`, are working to define such disease- and gene-specific thresholds, although these are currently limited to pilot phases for specific gene-disease pairs.
 
-We describe Cardio Classifier, a novel tool that utilises the framework outlined by the ACMG guidelines, to automatically classify variants for ICCs. This classification incorporates both disease specific and population data and allows for further refinement through user addition of clinical data. 
+The introduction of guidelines, including the logic behind reaching each classification, opens the way for new computational solutions to facilitate their adoption and increase consistency. Indeed, publication of the guidelines has led to the emergence of interactive tools `r citep(c("10.1186/s13073-016-0391-z","10.1038/gim.2016.13"))`, however, to date only one of these builds in automation `r citep("10.1016/j.ajhg.2017.01.004")`, and none incorporate expert disease-specific knowledge. 
 
+Here, we describe CardioClassifier, a powerful new tool that utilises the framework outlined by the ACMG/AMP guidelines, to automatically annotate variants across 17 computational criteria. Each criterion has been individually parametrised for each gene-disease pair using expert disease-specific knowledge. Automated data are integrated with interactively added case-specific information to calculate variant pathogenicity in a fully interactive web-interface that represents a comprehensive variant interpretation platform for ICCs.
 
-## METHODS
+## MATERIALS AND METHODS
 
-#### Tool implementation
+We have initially implemented CardioClassifier for a set of 40 genes with definitive links to 11 ICCs. The full list of genes and corresponding disease phenotypes can be found in Supplementary Table 1. The following section describes the development and optimisation of CardioClassifier and is split into three main sections:
 
-Cardio Classifier is implemented server-side in perl and PHP. Users upload variant data in the form of a single sample VCF file or individual variant details, which are then annotated by the Ensembl variant effect predictor (VEP)[ref] and converted to a table using the tableize_vcf.py script within LOFTEE (https://github.com/konradjk/loftee). Protein altering and splice site variants (coding ±8bps) are analysed for a set of 50 genes associated with inherited cardiac conditions. The full list of definitively associated gene-disease pairs currently analysed can be found in Table 1. We look to expand this list in the future to include the full set of 174 genes available on the Illumina TruSight Cardio sequencing panel [ref]. 
+1. Rule selection and optimisation - describes how the individual ACMG/AMP criteria were adapted and parameterised for ICCs 
+2. Code and implementation - outlines the technical details of the tool
+3. Benchmarking - describes the data and process used to fully test CardioClassifier
 
-The classifier automatically assesses each variant for 14 rules across three distinct data categories, as defined by the ACMG/AMP guidelines [ref]. The output is displayed on a PHP webpage that allows the user to interact and add (or remove) additional levels of evidence.
+### Rule selection and optimisation
 
-### Rule parameterisation
+For each rule in the ACMG/AMP framework, we first evaluated whether the rule was applicable to the ICC under investigation and, where appropriate, defined more precisely the circumstances under which the rule would be activated. For example, we defined disease-specific allele frequency thresholds taking into account the genetic architecture of each disease `r citep("10.1038/gim.2017.26")`, to dictate activation of BS1 (minor allele frequency is too common for the disorder), and used genetic burden data `r citep("10.1038/gim.2016.90")` along with extensive literature curation to determine for which genes and diseases loss-of-function mutations are a disease mechanism (activation of PVS1). As part of this development process, we compared rule activation in CardioClassifier to a set of variants manually curated as part of routine clinical service at the Royal Brompton Hospital (see Supplement). Full details of how each rule is parameterised can be found in the Supplement to this manuscript.
 
-Full details of how each rule is parameterised can be found in the Supplement to this manuscript.
+In addition to the 14 rules outlined in the ACMG/AMP guidelines, we have created three modified rules that enhance the interpretation of ICC variants. These rules are fully described in the results section and in the Supplement.
 
-In addition to the rules outlined in the ACMG/AMP guidelines, we have created three further rules that we believe aid and/or enhance the interpretation of ICC variants. We have coded these as follows:
+### Code and implementation
 
-*PS5 – TTNtv in constitutively expressed exon*
-Previous studies have shown that truncating mutations in TTN are highly likely to be pathogenic when identified in exons that are constitutively expressed in the heart [refs]. We use previously described RNA-seq data to identify regions with a proportion sliced in (PSI) > 90% [ref] and activate this rule for truncating variants in these regions. 
+CardioClassifier is implemented server-side in perl and PHP. Users upload variant data in the form of a single sample variant call file (VCF) or individual variant details, which are then annotated by the Ensembl variant effect predictor (VEP) `r citep("10.1186/s13059-016-0974-4")` and converted to a table using the tableize_vcf.py script within LOFTEE (https://github.com/konradjk/loftee). Protein altering and splice site variants (coding ±8bps) are analysed for a set of 40 genes associated with inherited cardiac conditions (Table 1). We look to continuously expand this list, focusing on curated genes robustly implicated in disease, emerging from community efforts such as ClinGen `r citep("10.1056/NEJMsr1406261")`.
 
-*PP6 – Missense change at equivalent amino residue of a paralogous gene is reported as pathogenic*
-*PM7 – Equivalent amino change in a paralogous gene is reported as pathogenic*
-For genes with paralogues that are known to be involved in disease, mutations at equivalent residues in these paralogues can identify residues that are likely intolerant to variation and hence may be more likely to harbour disease causing variants [ref]. We use previously published data [ref] to activate two rules relating to mutations at equivalent residues and the same amino acid change at these residues. Only mutations with high-confidence mapping to a paralogous gene are used (M-coffee mapping score >3 and the same reference amino acid). As this data relies on mutations ‘reported’ as pathogenic that have not been manually curated, the user can select whether to include these additional rules or not.
+The classifier automatically assesses each variant for 17 rules across three distinct data categories, as defined by the ACMG/AMP guidelines `r citep("10.1038/gim.2015.30")`. It also consults an internal knowledge base of additional evidence, grouped by ACMG rule, either derived from community curation efforts or manually curated internally. The output is displayed on a PHP webpage that allows the user to interact and add (or remove) additional levels of evidence.
 
-#### Test data
+### Benchmarking
 
-In order to fully test the classifier we utilised data from the following sources:
+*Datasets*
 
-1. ExAC – all variants passing filters in the 0.3.1 (March 2016) release of the Exome Aggregation Consortium (ExAC) dataset
-2. ClinVar – all variants identified as ‘Pathogenic’ or ‘Likely Pathogenic’ for Long QT syndrome (LQTS) with no conflicting data (i.e. reports of ‘Benign’ or ‘Likely Benign’) extracted from the X.X.X release of ClinVar using the MacArthur lab scripts on Github (https://github.com/macarthur-lab/clinvar)
-3. An Internal dataset of 880 DCM, 327 HCM and 874 healthy volunteer samples recruited to the NIHR Royal Brompton cardiovascular BRU and all confirmed by cardiac MRI. All samples were sequenced using the IlluminaTruSight Cardio Sequencing Kit [ref] on the Illumina NextSeq platform. This study had ethical approval (REC: 09/H0504/104+5) and informed consent was obtained for all subjects
-4. A set of 57 protein-altering MYH7 variants from the ClinGen pilot study [ref]
+In order to test CardioClassifier extensively we used data from the following sources:
 
+1. ClinVar – all variants identified as ‘Pathogenic’ or ‘Likely Pathogenic’ by multiple submitters with no conflicting data (i.e. reports of ‘Benign’ or ‘Likely Benign’ or ‘Uncertain Significance’) for hypertrophic cardiomyopathy (HCM; n=158), dilated cardiomyopathy (DCM; n=16), long QT syndrome (LQTS; n=18), catecholaminergic polymorphic ventricular tachycardia (CPVT; n=1), Brugada syndrome (Brs; n=4) or arrhythmogenic right ventricular cardiomyopathy (ARVC; n=22) were extracted from the 20161201 release of ClinVar`r citep("10.1093/nar/gkt1113")` using publically available scripts `r citep("10.12688/wellcomeopenres.11640.1")`.
+2. ClinVar – a wider set of missense variants clinically curated (i.e. not literature only or research) as ‘Pathogenic’ or ‘Likely Pathogenic’ for LQTS from one or more submitter with at least one review status star (n=48).
+3. 57 protein-altering variants that have been expertly curated as part of the recent ClinGen pilot for *MYH7*.
+4. A prospective dataset of 327 HCM cases and 625 healthy volunteers recruited to the NIHR Royal Brompton cardiovascular BRU, all phenotypically characterised using cardiac MRI. Samples were sequenced using the IlluminaTruSight Cardio Sequencing Kit `r citep("10.1007/s12265-016-9673-5")` on the Illumina NextSeq platform. This study had ethical approval (REC: 09/H0504/104+5) and informed consent was obtained for all subjects.
+
+*Comparison with existing resources*
+
+Although no similar tools currently exist that are both automated and disease-specific, in February 2017 Li and Wang released InterVar `r citep("10.1016/j.ajhg.2017.01.004")` as the first tool to build in a level of automation. We compared the performance of CardioClassifier against InterVar to assess the importance of our disease-specific annotations. We used the ClinVar dataset of 219 variants described above as a test dataset.
+
+InterVar scripts were downloaded from GitHub (https://github.com/WGLab/InterVar) and individually run for each disease using an engineered VCF file. To ensure a fair comparison, we edited the ‘disorder_cutoff’ to be equivalent to the thresholds used to activate BS1 in CardioClassifier. All other settings were left as default and no additional evidence was uploaded. We compared both the final classifications and the individual rules that were activated by each tool. 
+
+*Coverage comparison between ExAC and healthy volunteers*
+
+Variants that are common in the general population are unlikely to be disease-causing. CardioClassifier therefore filters variants relative to the exome aggregation consortium (ExAC) dataset of 60,706 indivduals `r citep("10.1038/nature19057")`. As this dataset is derived from exome sequencing data, some genomic regions, especially those that are repetitive or with high GC content, are not fully covered in these data. To overcome this limitation, we have included an additional cohort of 1383 healthy volunteers (625 UK and 758 from Singapore) sequenced on the TruSight Cardio sequencing panel, which has been optimised to achieve near complete coverage across 174 genes involved in ICCs `r citep("10.1007/s12265-016-9673-5")`. In addition, this dataset identifies Illumina platform-specific technical artefacts, allowing us to distinguish true differences in case and control frequencies from sequencing errors.
+
+To assess the contribution of our healthy volunteer cohort to variant frequency filtering we compared the coverage in these samples to the ExAC dataset (release 0.3.1) across the coding regions of the 40 genes currently parameterised within CardioClassifier (total 0.25 Mb). We report metrics as ‘sample bases’ where each base in each sample is individually assessed for coverage >20x, and the proportion of these meeting this threshold are reported.
 
 ## RESULTS
 
-#### Key features of Cardio Classifier aid clinical interpretation of ICC variants
+### Semi-automation leads to high quality and reproducible variant interpretation
 
-Cardio Classifier takes as input either a single sample VCF file (variant call file) from the end of a sequencing analysis pipeline or individual variant details. Interpretation is performed over a set of 50 genes definitively associated with inherited cardiac conditions (ICCs; Table 1). We pre-populate a grid representing the ACMG/AMP framework with computationally predicted and defined data (see Methods). This data is disease, gene and variant-type specific. It is important to note that it is only possible to computationally predict a sub-portion of the ACMG/AMP rules and that manual addition of clinical data is crucial in variant interpretation. The user is therefore able to interactively add and remove clinical data to refine the classification of each variant. It is important to keep this in mind when interpreting the results presented in this manuscript, where we often expect the classifier to output a classification one level lower than those that are manually curated.
+CardioClassifier provides a simple-to-use web interface that takes as input either individual variant details or a single sample VCF (Supplementary Figure 1). Where a diagnosis is known, users select one of 11 cardiac disorders for which to perform analysis that pre-specifies disease gene selection by CardioClassifier. Where a diagnosis is more uncertain (e.g. sudden cardiac death or complex cardiomyopathy), analysis can be performed over all 40 genes currently parameterised within the tool, or a subset associated with related disorders (e.g. all cardiomyopathies, or all arrhythmia syndromes; Table 1). Details of the key features of CardioClassifier can be found in Table 2.
 
-### Figure 1
+Each inputted variant is annotated for up to 17 computational criteria, with results outputted to a pre-populated grid representing the ACMG/AMP framework (Figure 1). Each criterion has been parameterised using expert disease and gene specific knowledge (see supplement for full details), leading to high quality and reproducible annotation. The variant report is interactive, allowing a user to add additional case-level evidence to generate and refine a final classification (Supplementary Figure 2). The report is transparent, with all evidence used to calculate the classification displayed, along with links out to eight external resources that are commonly used for interpretation of ICC variants: the ExAC browser `r citep("10.1093/nar/gkw971")`, Ensembl, the UCSC genome browser, ClinVar, PubMed, Google, the Beacon Network (https://beacon-network.org) and the Atlas of Cardiac Genetic Variation (ACGV) `r citep("10.1038/gim.2016.90")`.
 
-> Flow diagram
+### Disease-specific optimisation of ACMG/AMP rules
 
-![figure1](../figures/Figure1.png) 
+For seven computational criteria (PS1, PM4, PM5, PP3, BA1, BP3 and BP4), parameterisation is consistent across all gene-disease pairs, however, for the remaining criteria, we have incorporated expert disease, gene and variant-type specific knowledge and data to define thresholds for activation. This includes determination of robust disease-specific maximum frequency thresholds `r citep("10.1038/gim.2017.26")` (BS1 and PM2; Supplementary Table 1), and using large disease cohorts to define both 'mutational hotspots' `r citep("10.1038/gim.2016.90")` (PM1; Figure 2a)  and variants observed more frequently in cases when compared with population controls (PS4).
 
-###Table 1
+As most large reference datasets, such as ExAC, have not been specifically screened for ICCs, it is expected that low frequency disease-associated alleles will be observed. This is particularly the cases for ICCs, which often manifest later in life and exhibit incomplete penetrance. We have therefore modified PM2 so as not to inappropriately discard variants seen at very low frequencies in these reference datasets. 
 
-> Details of gene-disease relationships
+In addition, we have created extensions to three ACMG/AMP rules, to enhance interpretation of ICC variants. Firstly, we have modified PVS1 for the titin (TTN) gene, which has a role in up to 20% of dilated cardiomyopathy (DCM) cases `r citep("10.1126/scitranslmed.3010134")`. We have previously shown that only TTN truncating variants (TTNtv) in exons constitutively expressed in the heart are robustly associated with DCM `r citep("10.1126/scitranslmed.3010134")`. Additionally, it is unclear that the mechanism of action for these variants is truly loss of function (LoF). Instead of scoring all TTNtv equally and assuming an underlying LoF mechanism, we only score TTNtv highly if they are in constitutive exons (proportion spliced in (PSI) > 0.9), and we reduce the strength of evidence by one level from very strong to strong (coded as PVS1_strong).
 
-```{r}
-read.delim("../tables/Table1.txt",check.names=F) %>% pander
-```
+We also included modifications to PS1 and PM5 that utilise known disease-causing variants in related genes/proteins (paralogues), which likely identify residues intolerant to variation `r citep("10.1002/humu.22114")` (Figure 2c). Where nothing is known about variants at the equivalent residue of the same gene, we use high confidence variants as evidence if they affect the equivalent residue in a paralogue (with the same reference allele), either with the same substitution (rule PS1_moderate - *Equivalent amino acid change as an established pathogenic variant in a paralogous gene*), or a different substitution (rule PM5_supporting - *Missense change at an amino acid residue where a pathogenic missense change has been seen in the equivalent residue of a paralogous gene*). This analysis is currently restricted to the families of predominantly ion channel proteins associated with inherited arrhythmia syndromes for which this method has been previously validated `r citep(c("10.1002/humu.22114","10.1136/jmedgenet-2013-101917"))`.
 
-We have added additional levels of interactivity to the tool including links out to external webpages commonly used in variant interpretation for ICCs. These include the ExAC browser [ref], ClinVar [ref], the Beacon Network [ref] and the Atlas of Cardiac Genetic Variation [ref].
+We have previously shown paralogue annotation to be informative for over one third of novel SNVs `r citep("10.1136/jmedgenet-2013-101917")`, and independent validation has shown a high specificity and PPV compared with other sources of evidence `r citep(c("10.1007/s12265-015-9622-8","10.1161/CIRCGENETICS.114.000831"))`. To determine the effect of these criteria on variant classification (before inclusion of any case-level or functional data that cannot be computationally predicted) we used 48 clinically curated missense variants from ClinVar identified as ‘Pathogenic’ or ‘Likely Pathogenic’ for LQTS. Paralogue annotation rules were activated for 11/48 (22.9%) variants and resulted in a change of class from variant of uncertain significance (VUS) to Likely Pathogenic for 63.6% of these (7/11).
 
-As our full list of 50 genes represents a range of ICCs, when a diagnosis has already been confirmed for a patient it may be more appropriate to restrict analysis to a subset of genes relating to the condition of interest. We have therefore defined a set of 20 sub-panels for common and rare ICCs (Table ?) that can be selected for analysis. 
+### Highly curated datasets of disease cases and healthy controls aid annotation and filtering
 
-#### Paralogue annotation enhances the interpretation in specific arrhythmia variants
+As well as publically available data for both cases and population controls, CardioClassifier incorporates data from three highly-curated in-house datasets sequenced with the Illumina TruSight Cardio sequencing panel `r citep("10.1007/s12265-016-9673-5")`. Counts from 877 DCM, 327 HCM cases, and 1383 healthy volunteers, all rigorously phenotyped using cardiac MRI, are used to annotate variants in genes associated with these disorders.
 
-In addition to the standard ACMG/AMP guidelines, we have developed three additional rules that we believe enhance the interpretation of specific ICC genes. The first is specific to the Titin (TTN) gene, which has a role in up to 20% of dilated cardiomyopathy (DCM) cases [ref]. We have shown in previous work that DCM causing TTN truncating variants (TTNtv) are exclusively found in exons that are constitutively expressed in the heart (proportion spliced in (PSI) > 0.9) [ref]. We have therefore added an additional strong piece of evidence for TTNtvs that are found in these highly expressed exons (rule PS5). 
+Whilst the ExAC dataset, with data from 60,706 population samples, represents a powerful resource for variant frequency filtering, some genomic regions, especially those that are repetitive or with high GC content are not fully covered. Specifically, 12.5% of sample bases across the 40 genes within CardioClassifier are covered at <20x (Supplementary Figure 3). In contrast, in our high-quality set of healthy volunteers 99.9% of sample bases are covered at >20x allowing us to accurately identify common and low-frequency variants or platform specific errors across, all regions of interest (rule BS1).
 
-The other two new lines of evidence utilise known disease-causing mutations in related genes/proteins (paralogues), which likely identify residues intolerant to variation. This approach has been described previously [ref]. We use high confidence mutations as evidence if they either affect the equivalent residue in a paralogue (rule PP6), or represent the equivalent amino acid change (i.e. the same alternate amino acid; rule PM7). This analysis is currently restricted to the arrhythmia genes described in this previous work [ref].
+In addition to these in-house data, we also display counts from published clinical cohorts for HCM `r citep(c("10.1038/gim.2016.90","10.1038/gim.2014.205"))`, DCM `r citep(c("10.1038/gim.2016.90","10.1038/gim.2013.204"))`, LQTS `r citep("10.1016/j.hrthm.2009.05.021")` and Brugada syndrome `r citep("10.1016/j.hrthm.2009.09.069")`. 
 
-To demonstrate the utility of our paralogue annotation rules we used variants reported as ‘Pathogenic’ or ‘Likely Pathogenic’ for Long QT syndrome (LQTS) in the ClinVar database. Of 144 identified variants, 51 were output as ‘Likely Pathogenic’ and 8 as ‘Pathogenic’ using the ACMG/AMP rules alone. On inclusion of the paralogue annotation rules, 15 variants were reclassified from ‘Uncertain Significance’ to ‘Likely Pathogenic’ and 3 from ‘Likely Pathogenic’ to ‘Pathogenic’ (Table 2). This represents a 25.4% increase in variants that would be considered clinically actionable. Additionally, PP6 and PM7 were never activated for a set of 19 variants annotated as ‘Benign’ for LQTS in ClinVar.
+### Results show high concordance with manually curated and gold-standard data
 
-#### Results show high concordance with manually curated data
+We compared CardioClassifier to 57 gold-standard, manually curated protein-altering variants from the recent ClinGen pilot for MYH7 (manuscript in submission, citation will be added). Of 222 rules activated by ClinGen for these 57 variants, 157 represented computationally accessible data (from 9 ACMG/AMP rules) that were fully retrieved by CardioClassifier. CardioClassifier concordantly activated 137/157 rules (87.3%; Figure 3; Supplementary Table 2). The discrepancies fall across 3 rules; PP3 (*in silico* prediction algorithms; n=12), PS4 (prevalence in affected individuals statistically increased over controls; n=7) and PM5 (same amino acid residue as known Pathogenic variant; n=1). CardioClassifier imposes a more stringent threshold on PP3 (allowing only one of eight *in silico* prediction algorithms to be discordant), and differences in PS4 and PM5 are due to the increased availability of proband data to the ClinGen team (not available from public repositories). In both cases, CardioClassifier successfully returned all available data.
 
-As a gold-standard manually-curated dataset with which to compare our tool we used 57 protein-altering variants from the recent ClinGen pilot for MYH7 in hypertrophic cardiomyopathy. Overall we observed very good concordance across rules where Cardio Classifier makes a computational prediction, with the output of these rules matching between Cardio Classifier and the ClinGen pilot on X/X occasions (Table X/Figure X). Furthermore, after manually curating these variants using the ClinVar and Google links and references found in the classifier output, we reached an identical conclusion for XX% of variants.
+We then tested the ability of the links within the CardioClassifier report to inform activation of the 61 case-level data points activated by the ClinGen team. These links allowed us to manually collate 50/61 (82.0%) individual data points (Supplementary Table 2) with differences again in the availability of proband data (6 PS4_supporting, 1 PS4_moderate, 1 PS2, 1 BS4 and 2 PP1_moderate). After addition of this clinical data, we reached an identical classification to the ClinGen team for 50/57 (87.7%) variants (Figure 3a).
 
-#### Classifications are disease specific
+### CardioClassifier has higher sensitivity and specificity than non-specific interpretation tools
 
-To assess the performance of our tool on large cohorts of cases and controls we used internal data from a set of 2,081 samples comprising 880 DCM, 327 HCM and 874 healthy volunteers (HVOLs). We ran all variants found in these samples for both a HCM and DCM test. For both analyses, ‘Pathogenic’ and ‘Likely Pathogenic’ variants for the test disease were almost exclusively found in the samples corresponding to that disease (Figure X). In addition, the VUS category is enriched in the test disease samples over the other cohorts. With manually added clinical data, a proportion of these variants would become clinically actionable.
+In February 2017 Li and Wang released InterVar, and its companion web-server winterVar, as the first tools that add automation into populating criteria from the ACMG/AMP guidelines `r citep("10.1016/j.ajhg.2017.01.004")`. Whilst these tools were crucial steps forward in application of the framework, they aim to support interpretation across the full spectrum of human genes and disorders.
 
-#### Pathogenic mutations in the general population do not exceed expected rates
+To show the added value of the highly disease- and gene-specific annotations included in CardioClassifier, we compared CardioClassifier to InterVar using a set of 219 variants identified as ‘Pathogenic’ or ‘Likely Pathogenic’ on ClinVar, with high confidence, across six ICCs. Based on automatically-retrieved data only, InterVar identified 64/219 (29.2%) variants as Likely Pathogenic or Pathogenic, while CardioClassifier identified over double this number as clinically actionable (156/219) with a sensitivity of 71.2% (Supplementary Table 3). For both tools, sensitivity would be increased further through user addition of clinical and functional data.
 
-In order to investigate the burden of pathogenic mutations in the general population, and ensure we are not overcalling variants as pathogenic, we used the ExAC dataset of 60,706 individuals. We ran all variants identified in this cohort through the classifier for both a HCM and DCM test. 
+Despite the lower sensitivity of InterVar, there are occasions where the tool activates rules inappropriately in the absence of gene-specific knowledge. Firstly, InterVar activates PVS1 in the TTN gene, regardless of protein location, when it is recognised that truncating variants in exons not constitutively expressed in the heart are not associated with DCM, and are commonly found in demonstrably healthy controls `r citep("10.1126/scitranslmed.3010134")`. Consequently, InterVar will categorise rare variants in these regions as ‘Likely Pathogenic’ when in fact they are unlikely to be disease causing.
 
-For DCM, we identified 293 Likely Pathogenic variants in 374/60,706 (0.48%) individuals (assuming all individuals have only one DCM variant). Although this proportion is slightly above the reported prevalence of DCM of 1 in 250 (0.40%) [ref], the vast majority of these, 264/374, are truncating mutations in TTN, which are known to be present at an appreciable frequency in the general population. Overall we find ‘Likely Pathogenic’ mutations in TTN in 0.43% of ExAC individuals. 
+Secondly, InterVar activates rule PP5 (reputable source identifies the variant as Pathogenic) for 89.5% of the variants as they are reported as ‘Pathogenic’ in ClinVar. The ACMG guidelines state that this rule should only be activated when the evidence supporting the classification is unavailable, yet this evidence is often contained within the appropriate ClinVar submission. Full details of the rules activated by both tools are shown in Figure 3b.
 
-For HCM, we identify 4 Pathogenic and 71 Likely Pathogenic variants in 6 and 116 individuals respectively. In total, this corresponds to 0.20% (122/60,706) of ExAC individuals with a clinically actionable variant for HCM, a frequency that exactly matches the reported penetrance of the condition [ref]. Although we might expect this proportion to be lower, as the classifier does not include clinical data, this calculation does not take into account the reduced penetrance of many mutations involved in HCM.
+To ensure the higher sensitivity of CardioClassifier was not due to over-activating rules, we also tested a set of 67 ‘Benign’ and ‘Likely Benign’ variants from ClinVar across the same six ICCs. CardioClassifier identified 61/67 (91.0%) of these as Benign and the remaining 6 as VUS. Conversely, InterVar identified 41/67 (61.2%) as Benign with 22 as Likely Benign and 4 as VUS. Here InterVar activates BS2 when a variant is seen in the 1000 genomes dataset, which we believe is inappropriate for ICCs which do not fit the important caveat of ‘full penetrance expected at an early age’. We do acknowledge, however, that InterVar was developed for severe congenital and very-early onset developmental disorders with nearly 100% penetrance. 
 
-#### Manual curation of known variants
+### Diagnostic yield in HCM cases matches previous reports
 
-We have manually curated a set of X variants to include clinical and functional data in Cardio Classifier. These comprise the most commonly observed variants in published cohorts for HCM, DCM and ARVC (i.e. all those that occur more than X times in the combined dataset) [refs], the 57 protein altering mutations from the ClinGen pilot MYH7 analysis described above and the 144 variants identified as ‘Pathogenic’ in ClinVar for LQTS.  Overall, this dataset comprises X ‘Pathogenic’, X ‘Likely Pathogenic’ and X ‘VUS’ variants after curation (Table X).
+To investigate the clinical utility of CardioClassifier we used a dataset of 327 HCM cases. In 66 cases (20.2%) we immediately identified a Pathogenic (n=11) or Likely Pathogenic (n=55) variant, with a further 76 cases (23.2%) harbouring a VUS. To determine the proportion of these VUSs likely to become clinically actionable after the addition of case-level data, we calculated the excess of VUSs in cases over the background level of rare and presumably benign VUSs in 625 healthy volunteers (HVOLs). Based on a background level of 9.7%, we calculate a case excess of VUSs of 13.5%. Combining this with the 20.2% of cases with a Pathogenic or Likely Pathogenic variant, overall, 33.7% of cases have a potentially clinically relevant variant (Supplementary Figure 4a), comparable to previous reports `r citep("10.1038/gim.2014.205")`.
+
+### Manual curation of known variants
+
+In addition to automatic retrieval of computational data, CardioClassifier will store curated case-level data entered by users, or pre-populated from community curation efforts. We have primed this ‘knowledge base’ with data from 120 cardiomyopathy variants. We set out to create a ‘knowledge base’ of fully curated variants to include in CardioClassifier. This dataset comprised the 57 variants curated in the ClinGen MYH7 pilot study and the most commonly observed variants for the major cardiomyopathies; HCM, DCM and ARVC, defined as those that occurred six or more times in the ACGV resource (reflecting a HCM case frequency of ~1/1000) `r citep("10.1038/gim.2016.90")`. Collectively, the 84 variants in ACGV that were above this threshold are observed 1,258 times in 7,855 cardiomyopathy cases, representing 39.5% (1,258/3,186) of identified variants.
+
+Of the 84 ACGV variants, 63 had not been curated by the MYH7 pilot. For these variants, we searched the literature and ClinVar for reports of segregation, de novo occurrence and functional characterisation. After this manual curation step, this dataset comprised 34 Pathogenic, 13 Likely Pathogenic and 7 variants that remain VUS (Supplementary Table 4; Supplementary Figure 4b). Addition of case-specific data did not alter the overall number of clinically actionable variants but increased the proportion of Pathogenic/Likely Pathogenic and downgraded a subset of variants to Likely Benign and Benign (3.9%). The annotations for these 120 variants have been stored in CardioClassifier to be retrieved and automatically included in classifications. Consequently, for at least 40% of variants identified in cardiomyopathy cases, CardioClassifier will immediately return the correct classification, with the remaining requiring some manual addition of case-level data where this has not been pre-loaded into the knowledge base.
 
 ## DISCUSSION
 
-We have described Cardio Classifier, an automated and interactive tool to aid clinical variant interpretation and classification across a wide range of inherited cardiac conditions. To the best of our knowledge our tool represents a unique solution that incorporates data from the literature with in-house knowledge and analysis to pre-calculate variant classifications in line with the ACMG/AMP guidelines. The tool is transparent, with all the information incorporated into interpreting each variant displayed along with the final classification. It is also flexible, and designed to be fully interactive, with the user able to add and remove evidence specific to the patient/family of interest.
+We describe CardioClassifier, an automated and interactive web-tool to aid clinical variant interpretation across a wide range of ICCs. To the best of our knowledge our tool represents a unique disease-specific solution that automates data retrieval, incorporates gene- and disease-specific knowledge to refine rule application, is pre-loaded with curated data on prior observations (in health or disease), and integrates evidence according to the widely-adopted framework from ACMG/AMP. The tool is transparent, with all the information incorporated into interpreting each variant displayed along with the final classification. It is also flexible, and designed to be fully interactive, with the user able to add and remove evidence specific to the patient/family of interest.
 
-The true strength of our tool is in its disease specificity. We have used our wide knowledge of ICCs to define criteria and thresholds for each ACMG/AMP rule that are specific to the disorder of interest. We believe this adds huge power to variant interpretation and are able to demonstrate the effectiveness of this approach using both internal and external datasets. Incorporation of disease specific knowledge is, however, limited by our current understanding and the availability of disease datasets on which to perform analyses. Consequently, the power of our tool will continue to increase over time as these data emerge across the full compliment of ICCs.
+The strength of CardioClassifier is its disease-specificity. The ACMG/AMP rules are intentionally non-specific to allow adoption in any disease domain. To harness the full power of this framework, the rules need to be applied in a disease- and gene-specific manner `r citep("10.1016/j.ajhg.2016.06.001")`. We have defined criteria and thresholds for each ACMG/AMP rule that are specific to the disorder of interest. We demonstrate the power and effectiveness of this approach through comparison with InterVar, a recently released genome-wide interpretation interface, which CardioClassifier significantly outperforms. Incorporation of disease-specific knowledge is, however, limited by our current understanding and the availability of disease datasets on which to perform analyses. Consequently, the power of this tool will continue to increase over time as new and informative data emerge across the full complement of ICCs. Furthermore, on-going community initiatives, such as the Clinical Genome Resource (ClinGen), are defining consensus disease and gene-specific standards for modifications to the ACMG/AMP guidelines. It is our intention to continue to develop CardioClassifier to utilise these standards as they become available.
 
-We believe the main limitation to the effectiveness of our tool is the inability to computationally incorporate clinical or patient specific data into the initial classification, leading to us under-call variants as pathogenic. We hope, however, that the combination of pre-populated computational data with the ability to interactively add additional levels of evidence will help to overcome this hurdle.
+We believe the main limitation to the effectiveness of any computational solution is the limited ability to retrieve all clinical or patient-specific data computationally. This is in part due to current databases, such as ClinVar, storing clinical assertions in free text fields, rather than as structured data that can be easily mined. The combination of CardioClassifier pre-populating computational data linked with the ability to interactively add additional levels of case and variant specific evidence in a structured format, will help to overcome this hurdle. Furthermore, we have manually curated and included case-level data pertaining to 120 variants in a variant specific ‘knowledge base’ and will continue to add to this as knowledge accumulates in the community. Future development of CardioClassifier will streamline data-sharing, to expand our knowledge base, and share this with the community via submission to the ClinVar database. This increasing knowledge base relies on researchers and clinicians in the field supporting data-sharing initiatives, and facilitating direct ClinVar submission from CardioClassifier for the benefit of the ICC community is a development priority. A further limitation to CardioClassifier in its current form is the restricted prediction of impact on splicing. This arises for two main reasons; firstly, CardioClassifier uses the Ensembl variant effect predictor to annotate variants, which annotates bases within 8 base-pairs of the exon/intron boundary as splice-site, but will miss more distal bone-fide splice site variants. Secondly, we currently have not incorporated any in silico splice-site prediction algorithms, due to limitations around availability, licensing and accuracy. These issues will be addressed in a future release.
 
-Cardio Classifier is designed to work seamlessly, but not exclusively, with the Illumina TruSight Cardio sequencing kit [ref], and takes as input the final output VCF from a standard bioinformatics analysis pipeline. We believe the combination of these two powerful tools is a crucial step in broadening the availability of genetic testing for ICCs, and standardising variant interpretation in this field.
-
+CardioClassifier is designed to work seamlessly, but not exclusively, with the Illumina TruSight Cardio sequencing kit `r citep("10.1007/s12265-016-9673-5")`, and takes as input the final output VCF from a standard bioinformatics analysis pipeline. We believe the combination of these two powerful tools is a crucial step in broadening the availability of genetic testing for ICCs, and standardising variant interpretation in this field. Furthermore, we hope that in demonstrating the clinical utility of our disease-specific approach, we will encourage others to develop similar tools across other disease specialties.
 
 ## TOOL AVAILABILITY
 
-Cardio Classifier is freely available for non-commercial use at www.cardioclassifier.org.
+CardioClassifier is available at www.cardioclassifier.org, with a free license for non-commercial use. The code and data used to produce this manuscript are available at: https://github.com/ImperialCardioGenetics/CardioClassifierManuscript.
 
 ## ACKNOWLEDGEMENTS
 
-This work was supported by the Wellcome Trust (107469/Z/15/Z), the Medical Research Council (UK), the NIHR Biomedical Research Unit in Cardiovascular Disease at Royal Brompton & Harefield NHS Foundation Trust and Imperial College London, the Fondation Leducq (11 CVD-01) and a Health Innovation Challenge Fund award from the Wellcome Trust and Department of Health, UK (HICF-R6-373).
+This work was supported by the Wellcome Trust (107469/Z/15/Z), the Medical Research Council (UK), the NIHR Cardiovascular Biomedical Research Unit and the Cardiovascular Research Centre Biobank at Royal Brompton and Harefield NHS Foundation Trust (NRES ethics number 09/H0504/104+5), the Fondation Leducq (11 CVD-01), the British Heart Foundation (PG/12/27/29489) and a Health Innovation Challenge Fund award from the Wellcome Trust and Department of Health, UK (HICF-R6-373).
 
 This publication includes independent research commissioned by the Health Innovation Challenge Fund (HICF), a parallel funding partnership between the Department of Health and Wellcome Trust. The views expressed in this work are those of the authors and not necessarily those of the Department of Health or Wellcome Trust.  
 
 ## SUPPLEMENTARY INFORMATION
 
+- SUPPLEMENTARY NOTE 1 - Parameterisation of ACMG/AMP rules
+- SUPPLEMENTARY NOTE 2 - Benchmarking against manually curated variants
+- Supplementary Table S1
+- Supplementary Table S2
+- Supplementary Table S3
+- Supplementary Table S4
+- Supplementary Figure S1
+- Supplementary Figure S2
+- Supplementary Figure S3
+- Supplementary Figure S4
 
+## FIGURE AND TABLE LEGENDS
 
-##REFERENCES
+**Figure 1: Example variant report output by CardioClassifier.** A grid is output for each individual variant. Rules highlighted in colour are activated for the variant and rules in grey on a white background are assessed but not activated. A user can click on a rule to manually add or remove a piece of evidence. All evidence used to assess the variant is displayed under the grid along with links out to external resources. An overall classification for the variant using the ACMG/AMP logic is displayed in the top left corner. *EF - etiological fraction; the prior probability that a variant, identified in a case, is Pathogenic `r citep("10.1038/gim.2016.90")`.
+
+**Figure 2: Examples of disease-specific optimisation of ACMG/AMP rules.** (a) Missense variants within a sub-portion of MYH7, when identified in a HCM patient, have a 97% prior probability of being Pathogenic (etiological fraction; EF=0.97). We activate PM1 for missense variants in this region. Here we use *MYH7*:c.2221G>T as an example (labelled with a black bar). (b) Truncating variants in *TTN* are only known to cause DCM when found in exons constitutively expressed in the heart (proportion spliced in (PSI) > 0.9). We activate PVS1_strong for these variants. Here we use *TTN*:c.86641delC as an example (labelled with a black bar). (c) Variants that have been identified as Pathogenic in paralogous genes may identify residues that are intolerant to variation. We have created two modified rules, PS1_moderate and PM5_supporting to incorporate this evidence. Here we use *KCNQ1*:p.T311I as an example. *KCNQ2*:p.T276I is associated with Ohtahara syndrome. We activate PS1_moderate for *KCNQ1*:p.T311I which is the equivalent missense change (i.e. same reference and alternate amino acids) in a different member of the same protein family.
+
+**Figure 3: Validation of CardioClassifier** (a) Comparing CardioClassifier to 57 variants expertly curated by the ClinGen pilot for *MYH7*. Rules were split into those that can be computationally annotated and those that are 'case-level' and require manual input. CardioClassiifer was run using an 'All Cardiomyopathy' test to reflect the spectrum of phenotypes caused by variants in *MYH7*. *Of the computational rules, 3 were removed from the comparison as they represent draft modifications to the ACMG framework by the ClinGen Cardiovascular domain working group that are not yet published, and not yet implemented in CardioClassifier. Specifically, truncating variants in _MYH7_ activate a new rule PVS1_moderate. Additionally, for variants classified as Benign by frequency alone (BA1) CardioClassifier does not assess any further rules, leading us to remove an additional data point from the comparison as we would not expect it to be retrieved. (b) Counts of individual rules activated by CardioClassifier and InterVar for 219 variants identified as Pathogenic or Likely Pathogenic in ClinVar. Only pathogenic evidence rules and rules activated by one of the tools at least once are shown.
+
+**Table 1: Details of gene-disease pairs currently analysed by CardioClassifier.** The disease class column details the larger sub-panels relating to broad disorder types that each disease and gene set are within.
+
+**Table 2: Key features of CardioClassifier.** Included are details of each key feature and which of three currently available tools (Alamut, InterVar and the ClinGen pathogenicity calculator) also includes each feature.
+
+## TABLES
+
+### Table 1
+
+```{r}
+read.delim("../tables/Table1.txt",check.names=F) %>% pander
+```
+
+### Table 2
+
+```{r}
+read.delim("../tables/Table2.txt",check.names=F) %>% pander
+```
+
+## FIGURES
+
+### Figure 1
+
+![](../figures/Figure1.png)
+
+### Figure 2
+
+![](../figures/Figure2.png)
+
+### Figure 3
+
+![](../figures/Figure3.png)
+
+## REFERENCES
 
 ```{r, echo=FALSE, message=FALSE}
 write.bibtex(file="references.bib")
 ```
-

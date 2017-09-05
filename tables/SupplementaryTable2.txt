@@ -1,0 +1,60 @@
+	ClinGen activated rules			CardioClassifier activated rules			Retrieved rules			Final classification	
+Variant	Computational	Case-level	Total (computational)	Automatic	Through links	Link source	Computational	Case-level	Not found	ClinGen	CardioClassifier
+c.428G>A	PS4, PM2	PP1	3 (2)	PS4, PM2, PP2	PP1	ClinVar	2	1	0	Likely Pathogenic	Likely Pathogenic
+c.732+1G>A	PM2, PVS1_mod*, PP3	-	3 (3)	PM2	-	-	1	-	2	VUS	VUS
+c.788T>C	PS4, PM1, PM2, PP3	PP1_strong	5 (4)	PM1, PM2, PP3	PP1_strong	ClinVar, Google	3	1	1	Pathogenic	Likely Pathogenic
+c.1106G>A	PM1, PM2	PM6, PS4_moderate	4 (2)	PM1, PM2	PM6, PS4_moderate	ClinVar	2	2	0	Likely Pathogenic	Likely Pathogenic
+c.1157A>G	PM1, PM2, PP3	PM6	4 (3)	PM1, PM2, PP3	PM6	ClinVar	3	1	0	Likely Pathogenic	Likely Pathogenic
+c.1207C>T	PS4, PM1, PM2, PM5, PP3	PP1_strong	6 (5)	PS4, PM1, PM2, PM5, PP3	PP1_strong	ClinVar	5	1	0	Pathogenic	Pathogenic
+c.1208G>A	PS4, PM1, PM2, PM5, PP3	PS3, PP1_strong	7 (5)	PS4, PM1, PM2, PM5	PS3, PP1_strong	ClinVar, Google	4	2	1	Pathogenic	Pathogenic
+c.1357C>T	PS4, PM1, PM2, PP3	PS2, PS3, PP1_strong	7 (4)	PS4, PM1, PM2, PP3	PS2, PS3, PP1_strong	ClinVar, Google	4	3	0	Pathogenic	Pathogenic
+c.1358G>A	PS4, PM1, PM2, PM5, PP3	PM6	6 (5)	PM1, PM2, PM5, PP3	PM6	ClinVar	4	1	1	Pathogenic	Likely Pathogenic
+c.1477_1478delAT	PM2, PVS1_mod*, PP3	-	3 (3)	PM2	-	-	1	-	2	VUS	VUS
+c.1594T>C	PM1, PM2, PP3	PS3, PP1_strong, PS4_supporting	6 (3)	PM1, PM2, PP3	PS3, PP1_strong	ClinVar, Google	3	2	1	Pathogenic	Pathogenic
+c.1750G>C	PS4, PM1, PM2, PP3	PP1_moderate	5 (4)	PS4, PM1, PM2, PP3	PP1_moderate	ClinVar	4	1	0	Pathogenic	Pathogenic
+c.1988G>A	PS4, PM1, PM2	PP1_strong	4 (3)	PS4, PM1, PM2	PP1_strong	ClinVar	3	1	0	Pathogenic	Pathogenic
+c.2146G>A	PS4, PM1, PM2, PP3	PP1_strong, PM6	6 (4)	PS4, PM1, PM2, PP3	PP1_strong, PM6	ClinVar	4	2	0	Pathogenic	Pathogenic
+c.2155C>T	PS4, PM1, PM2, PM5, PP3	PS2, PS3, PP1_strong	7 (5)	PS4, PM1, PM2, PM5, PP3	PS2, PS3, PP1_strong	ClinVar, Google	5	3	0	Pathogenic	Pathogenic
+c.2156G>A	PS4, PM1, PM2, PM5, PP3	PP1_strong	6 (5)	PS4, PM1, PM2, PM5	PP1_strong	ClinVar	4	1	1	Pathogenic	Pathogenic
+c.2162+4G>A	BA1, BP4*	-	2 (2)	BA1	-	-	1	-	1	Benign	Benign
+c.2167C>G	PS4, PM1, PM2, PM5, PP3	PP1_strong	6 (5)	PM1, PM2, PM5, PP3	PP1_strong	ClinVar	4	1	1	Pathogenic	Pathogenic
+c.2167C>T	PS4, PM1, PM2, PM5, PP3	PP1_strong, PM6, BP2	8 (5)	PS4, PM1, PM2, PM5, PP3	PP1_strong, PM6, BP2	ClinVar	5	3	0	Pathogenic	Pathogenic
+c.2207T>C	PS4, PM1, PM2	PP1_moderate	4 (3)	PS4, PM1, PM2	PP1_moderate	ClinVar	3	1	0	Likely Pathogenic	Likely Pathogenic
+c.2221G>C	PS4, PM1, PM2, PM5, PP3	PM6, PP1	7 (5)	PM1, PM2, PM5, PP3	PM6, PP1	ClinVar	4	2	1	Pathogenic	Likely Pathogenic
+c.2221G>T	PS4, PM1, PM2, PM5, PP3	PP1_moderate	6 (5)	PS4, PM1, PM2, PP3	PP1_moderate	ClinVar	4	1	1	Pathogenic	Pathogenic
+c.2360G>A	PM1	BP2	2 (1)	PM1	BP2	ClinVar	1	1	0	VUS	VUS
+c.2513C>T	PM1, PM2, PP3	PS2, PS4_supporting	5 (3)	PM1, PM2, PP3	PM6	ClinVar	3	0	2	Pathogenic	Likely Pathogenic
+c.2539_2541delAAG	PS4, PM2, PM4	PP1	4 (3)	PM2, PM4	PP1	ClinVar	2	1	1	Likely Pathogenic	VUS
+c.2539A>G	PS4, PM1, PM2, PP3	-	4 (4)	PS4, PM1, PM2	-	-	3	-	1	Likely Pathogenic	Likely Pathogenic
+c.2608C>T	PM1, PM2, PM5, PP3	PS4_supporting	5 (4)	PM1, PM2, PM5, PP3	PS4_supporting	ClinVar	4	1	0	Likely Pathogenic	Likely Pathogenic
+c.2609G>A	PS4, PM1, PM2	PP1_strong	4 (3)	PS4, PM1, PM2, PP3	PP1_strong	ClinVar	3	1	0	Pathogenic	Pathogenic
+c.2678C>T	PM1, PM2	PP1_moderate, PS4_supporting, BS4	5 (2)	PM1, PM2	PS4_supporting, PP1 supporting 		2	1	2	Likely Pathogenic	Likely Pathogenic
+c.2681A>G	PS4, PM1, PM2, PP3	PP1_moderate	5 (4)	PS4, PM1, PM2, PP3	PP1_moderate	ClinVar	4	1	0	Pathogenic	Pathogenic
+c.2717A>G	PS4, PM1, PM2	PP1_strong	4 (3)	PS4, PM1, PM2	PP1_strong	ClinVar	3	1	0	Pathogenic	Pathogenic
+c.2722C>G	PS4, PM1, PM2, PP3	PP1_strong	5 (4)	PS4, PM1, PM2, PP3	PP1_strong	ClinVar	4	1	0	Pathogenic	Pathogenic
+c.2791_2793delGAG	PM2, PM4	PP1_moderate, PS4_supporting	4 (2)	PM2, PM4	PP1_moderate, PS4_supporting	ClinVar, Google	2	2	0	Likely Pathogenic	Likely Pathogenic
+c.3133C>T	PS4, PM2, PP3	-	3 (3)	PM2, PP2, PP3	-	-	2	-	1	VUS	VUS
+c.3158G>A	PS4, PM2, PP3	PP1_moderate	4 (3)	PM2, PP2, PP3	PP1_moderate	-	2	1	1	VUS	VUS
+c.3169G>A	PM2, PP3	PS4_moderate	3 (2)	PM2, PP2, PP3	PS4_supporting	ClinVar	2	0	1	VUS	VUS
+c.3286G>T	PP3	-	1 (1)	PP2, PP3	-	-	1	0	0	VUS	VUS
+c.3382G>A	-	-	0 (0)	PP2	-	-	-	-	0	VUS	VUS
+c.3578G>A	PP3	-	1 (1)	PM2, PP2, PP3	-	-	1	-	0	VUS	VUS
+c.3658_3660delGAG	PM2, PM4	PP1, PS4_supporting	4 (2)	PM2, PM4	PP1	ClinVar	2	1	1	Likely Pathogenic	VUS
+c.3981C>A	PP3	BS4	2 (1)	PP3	BS4	ClinVar	1	1	0	VUS	VUS
+c.4066G>A	PS4, PM2, PP3	PP1_moderate	4 (3)	PS4, PM2	-	-	2	0	2	Likely Pathogenic	Likely Pathogenic
+c.4130C>T	PS4, PM2, PP3	-	3 (3)	PS4, PM2	-	-	2	-	1	Likely Pathogenic	Likely Pathogenic
+c.4258C>T	PM2, PP3	PS4_moderate	3 (2)	PM2, PP3	PS4_moderate	ClinVar	2	1	0	VUS	VUS
+c.4276G>A	PM2, PP3	PS4_supporting	3 (2)	PM2, PP3	-	-	2	0	1	VUS	VUS
+c.4377G>T	PP3, BS1	-	2 (2)	BS1	-	-	1	-	1	VUS	VUS
+c.4588C>T	PM2, PVS1_mod*	-	2 (2)	PM2	-	-	1	-	1	VUS	VUS
+c.4909G>A	-	-	0 (0)	-	-	-	-	-	0	VUS	VUS
+c.5135G>A	PS4, PM2, PP3	PP1	4 (3)	PS4, PM2	PP1	ClinVar	2	1	1	Likely Pathogenic	Likely Pathogenic
+c.5302G>A	PM2, PP3	PS4_supporting	3 (2)	PM2, PP3	PS4_supporting	ClinVar	2	1	0	VUS	VUS
+c.5326A>G	PP3	-	1 (1)	-	-	-	0	-	1	VUS	VUS
+c.5329G>A	PM2, PP3	-	2 (2)	PM2	-	-	1	-	1	VUS	VUS
+c.5401G>A	PM2, PP3	PM6, PS4_supporting	4 (2)	PM2, PP3	PM6, PS4_supporting	ClinVar	2	2	0	Likely Pathogenic	Likely Pathogenic
+c.5588G>A	PM2, PP3	PS4_supporting	3 (2)	PM2	-	-	1	0	2	VUS	VUS
+c.5704G>C	-	-	0 (0)	-	-	-	-	-	0	VUS	VUS
+c.5726G>C	PM2, PP3	PM6	3 (2)	PM2, PP2, PP3	PM6	ClinVar	2	1	0	VUS	Likely Pathogenic
+c.5740G>A	PM2, PP3	PM6, PS4_supporting	4 (2)	PM2, PP2, PP3	PM6	ClinVar	2	1	1	Likely Pathogenic	Likely Pathogenic
+						TOTAL	137	50	35		

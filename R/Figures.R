@@ -1,197 +1,148 @@
-#FIGURE 2
-
-data<-read.table("../data/InternalDataProportions_core.txt", header=TRUE, sep="\t")
-data$Class <- factor(data$Class, c("Pathogenic", "Likely Pathogenic", "VUS", "Likely Benign", "Benign"))
-
 library(ggplot2)
+library(grid)
+library(gtable)
 library(gridExtra)
 
-png("../figures/Figure2.png",width=1400,height=600,res=150)
+#FIGURE 3
 
-hcm_plot<-ggplot(subset(data, (Test=='HCM' & (Class %in% c('Pathogenic', 'Likely Pathogenic', 'VUS')))), aes(Class, Proportion)) +
-  geom_bar(aes(fill=Cohort), position="dodge", stat="identity") +
-  scale_fill_manual(values=c("#a2c4c4","#2f7a7a","grey"))
+#InterVar figure (3a)
 
-dcm_plot<-ggplot(subset(data, (Test=='DCM' & (Class %in% c('Pathogenic', 'Likely Pathogenic', 'VUS')))), aes(Class, Proportion)) +
-  geom_bar(aes(fill=Cohort), position="dodge", stat="identity") +
-  scale_fill_manual(values=c("#a2c4c4","#2f7a7a","grey"))
+counts<-read.table("../data/ActivatedRules.txt", header=TRUE, sep="\t")
 
-grid.arrange(hcm_plot, dcm_plot, ncol=2)
+counts$Rule <- factor(counts$Rule, c("PVS1", "PVS1_strong", "PS4", "PM1", "PM2", "PM4", "PM5", "PS1_moderate", "PP2", "PP3", "PP5", "PM5_supporting", "BA1", "BS1", "BS2", "BP1", "BP4", "BP6"))
 
+fig3a <- ggplot(subset(counts, (Rule %in% c("PVS1", "PVS1_strong", "PS4", "PM1", "PM2", "PM4", "PM5", "PS1_moderate", "PP2", "PP3", "PP5", "PM5_supporting"))), aes(Rule, Count)) +
+  geom_bar(aes(fill=Tool), position="dodge",stat="identity",width=0.6)+
+  scale_fill_manual(values=c("#2f7a7a","grey")) +
+  theme(axis.text=element_text(size=12),axis.title.x=element_blank(),axis.title=element_text(size=12),legend.title=element_blank(),axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ylab("Number of variants")
+
+#png("../figures/Figure3a.png",width=1400,height=800,res=150)
+#fig3a
+#dev.off()
+
+# Create multipanel (Figure 3)
+
+flow <- readPNG("../figures/ClinGenComparisonFlowDiagram.png")
+g <- rasterGrob(flow, interpolate=TRUE)
+lay <- rbind(c(1,1),c(2,2))
+
+png(file="../figures/Figure3.png",width=1400, height=1400,res=120)
+grid.arrange(g,fig3a, layout_matrix = lay)
 dev.off()
 
-# Try pie charts
+#SUPPLEMENTARY FIGURE 3
 
-data2<-read.table("../data/InternalDataProportions_core_cumulative.txt", header=TRUE, sep="\t")
-data2$Class <- factor(data2$Class, c("Pathogenic", "Likely Pathogenic", "VUS", "Likely Benign", "Benign"))
+data<-read.table("../data/PerBaseCoverageClassifierGenesHVOLsAndExAC.txt", header=TRUE, sep="\t")
 
-col_func<-colorRampPalette(c("red","grey","deepskyblue4"))
+GeneList<-c('LMNA','TNNT2','SCN5A','TTN','TCAP','MYH7','VCL','TPM1','TNNC1','RBM20','DSP','BAG3','MYBPC3','PRKAG2','TNNI3','MYL3','MYL2','ACTC1','CSRP3','PLN','GLA','FHL1','LAMP2','GAA','TTR','PKP2','DSG2','DSC2','JUP','RAF1','SOS1','PTPN11','KRAS','KCNQ1','KCNH2','KCNE1','KCNE2','RYR2','FBN1','LDLR')
+NumGenes<-length(GeneList)
 
-hcm_hcm<-ggplot(subset(data2, (Test=='HCM' & Cohort=='HCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="bottom") +
-  ggtitle("HCM")
+plot_list=list()
+second_plot_list=list()
+third_plot_list=list()
 
-hcm_dcm<-ggplot(subset(data2, (Test=='HCM' & Cohort=='DCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="none") +
-  ggtitle("DCM")
-  
-hcm_hvol<-ggplot(subset(data2, (Test=='HCM' & Cohort=='HVOL')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="none") +
-  ggtitle("HVOL")
-
-dcm_hcm<-ggplot(subset(data2, (Test=='DCM' & Cohort=='HCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="none") +
-  ggtitle("HCM")
-
-dcm_dcm<-ggplot(subset(data2, (Test=='DCM' & Cohort=='DCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="none") +
-  ggtitle("DCM")
-
-dcm_hvol<-ggplot(subset(data2, (Test=='DCM' & Cohort=='HVOL')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=1, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  coord_polar(theta="y") +
-  theme_void() + 
-  theme(legend.position="none") +
-  ggtitle("HVOL")
-
-g_legend<-function(a.gplot)
+for(i in 1:NumGenes)
 {
-  tmp <- ggplot_gtable(ggplot_build(a.gplot))
-  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
-  legend <- tmp$grobs[[leg]]
-  return(legend)
+  GeneName<-GeneList[i]
+  p<-ggplot() +
+    geom_point(data=subset(data, (Gene==GeneName)), aes(GenePosition, ExACProp20, col='ExAC')) +
+    geom_point(data=subset(data, (Gene==GeneName)), aes(GenePosition, HVOLProp20, col='TruSight Cardio')) +
+    theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), legend.title = element_blank()) +
+    xlab(GeneName) +
+    ylab("Proportion of Samples >= 20x coverage") +
+    scale_color_manual(values=c("grey","#2f7a7a")) +
+    scale_y_continuous(limits = c(0,1), expand = c(0, 0)) +
+    scale_x_continuous(expand = c(0, 0)) +
+    theme(legend.position="none",axis.text=element_text(size=14),axis.title=element_text(size=14))
+  
+  if (i<16)
+  {
+    plot_list[[i]]=p
+  }
+  else if (i<31)
+  {
+    j=i-15;
+    second_plot_list[[j]]=p
+  }
+  else
+  {
+    k=i-30;
+    third_plot_list[[k]]=p
+  }
 }
 
-legend <- g_legend(hcm_hcm)
-hcm_hcm_no_leg<-hcm_hcm + theme(legend.position="none")
-
-hcm_text<-ggplot(data2) + 
-  annotate("text", x = 4, y = 25, label = "HCM test", size=6) + 
-  theme_void()
-
-dcm_text<-ggplot(data2) + 
-  annotate("text", x = 4, y = 25, label = "DCM test", size=6) + 
-  theme_void()
-
-png("../figures/PieCharts.png",width=1400,height=800,res=150)
-grid.arrange(hcm_text, hcm_hcm_no_leg, hcm_dcm, hcm_hvol, dcm_text, dcm_hcm, dcm_dcm, dcm_hvol, legend, 
-             ncol=4, nrow=3, 
-             layout_matrix=rbind(c(1,2,3,4), c(5,6,7,8), c(9,9,9,9)), 
-             heights=c(10, 10, 1), widths=c(4,10,10,10))
+png(file="../figures/SupplementaryFigure3a.png",width=3000,height=4000,res=150)
+do.call(grid.arrange, c(plot_list,ncol=3))
 dev.off()
 
-# Try stacked bars
-
-data2<-read.table("../data/InternalDataProportions_core_cumulative.txt", header=TRUE, sep="\t")
-data2$Class <- factor(data2$Class, c("Pathogenic", "Likely Pathogenic", "VUS", "Likely Benign", "Benign"))
-data2$Cohort <- factor(data2$Cohort, c("HVOL", "DCM", "HCM"))
-
-col_func<-colorRampPalette(c("red","grey","deepskyblue4"))
-
-hcm<-ggplot(subset(data2, (Test=='HCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=.75, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  theme_classic() +
-  theme(legend.position="bottom", axis.title.x=element_blank(), axis.title.y=element_blank()) +
-  ggtitle("HCM test") +
-  coord_flip()
-
-dcm<-ggplot(subset(data2, (Test=='DCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=.75, color='black') +
-  scale_fill_manual(values=col_func(5)) +
-  theme_classic() +
-  ggtitle("DCM test") +
-  theme(axis.title.x=element_blank(), axis.title.y=element_blank(), legend.position="none") +
-  coord_flip()
-
-legend <- g_legend(hcm)
-hcm_no_leg<-hcm + theme(legend.position="none")
-
-png("../figures/StackedBars.png",width=1000,height=1000,res=150)
-grid.arrange(hcm_no_leg, dcm, legend, 
-             ncol=1, nrow=3, 
-             layout_matrix=rbind(c(1), c(2), c(3)), 
-             heights=c(10, 10, 1))
+png(file="../figures/SupplementaryFigure3b.png",width=3000,height=4000,res=150)
+do.call(grid.arrange, c(second_plot_list,ncol=3))
 dev.off()
 
-# Try single stacked bar
+png(file="../figures/SupplementaryFigure3c.png",width=3000,height=3330,res=150)
+do.call(grid.arrange, c(third_plot_list,ncol=3))
+dev.off()
 
-data2<-read.table("../data/InternalDataProportions_core_cumulative.txt", header=TRUE, sep="\t")
-data2$Class <- factor(data2$Class, c("Pathogenic", "Likely Pathogenic", "VUS", "Likely Benign", "Benign"))
+#SUPPLEMENTARY FIGURE 4
 
-hcm_hvol_sub<-subset(data2, Test=='HCM' & Cohort=='HVOL' & Class=='VUS')
-hcm_vus_in_hvol<-hcm_hvol_sub$Proportion
-hcm_ben_sub<-subset(data2, Test=='HCM' & Cohort=='HCM' & Class=='Benign')
-hcm_ben<-hcm_ben_sub$Proportion
-hcm_lb_sub<-subset(data2, Test=='HCM' & Cohort=='HCM' & Class=='Likely Benign')
-hcm_lb<-hcm_lb_sub$Proportion
-hcm_path_sub<-subset(data2, Test=='HCM' & Cohort=='HCM' & Class=='Pathogenic')
-hcm_path<-hcm_path_sub$Proportion
-hcm_lp_sub<-subset(data2, Test=='HCM' & Cohort=='HCM' & Class=='Likely Pathogenic')
-hcm_lp<-hcm_lp_sub$Proportion
+data<-read.table("../data/InternalDataProportions_core.txt", header=TRUE, sep="\t")
 
-hcm_line = 1-(hcm_ben+hcm_lb+hcm_vus_in_hvol)
+data$Class<-factor(data$Class, levels=c('Pathogenic','Likely Pathogenic','VUS'))
 
-dcm_hvol_sub<-subset(data2, Test=='DCM' & Cohort=='HVOL' & Class=='VUS')
-dcm_vus_in_hvol<-dcm_hvol_sub$Proportion
-dcm_ben_sub<-subset(data2, Test=='DCM' & Cohort=='DCM' & Class=='Benign')
-dcm_ben<-dcm_ben_sub$Proportion
-dcm_lb_sub<-subset(data2, Test=='DCM' & Cohort=='DCM' & Class=='Likely Benign')
-dcm_lb<-dcm_lb_sub$Proportion
+vus.prop<-data$Proportion[data$Class=='VUS' & data$Cohort=='HVOL' & data$Curated=='N']
+vus.hcm<-data$Proportion[data$Class=='VUS' & data$Cohort=='HCM' & data$Curated=='N']
 
-dcm_line = 1-(dcm_ben+dcm_lb+dcm_vus_in_hvol)
-
-hcm_single<-ggplot(subset(data2, (Test=='HCM' & Cohort=='HCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=.8, color='black') +
-  scale_fill_manual(values=c("#AA3E39","#D46F6A","grey","#4D658D","#2D4671")) +
-  theme_classic() +
-  theme(legend.position="bottom", legend.title=element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x=element_blank(), axis.title.y=element_blank()) +
-  ggtitle("HCM") +
+not_curated<-ggplot(subset(data, (Cohort=='HCM' & Curated=='N')), aes(Cohort, Proportion, fill=Class)) +
+  geom_bar(stat="identity", colour="black",width=0.57) +
+  scale_fill_manual(values=c('#8D1F18','#BC6157','grey')) +
+  ylim(0,0.45) +
   coord_flip() +
-  geom_hline(yintercept=hcm_line, linetype = "longdash") + 
-  annotate("segment",x=1.45, xend=1.45, y=hcm_line, yend=(1-(hcm_ben+hcm_lb)), colour="black", size=1, arrow=arrow()) +
-  annotate("text", x=1.452, y=(1-(hcm_ben+hcm_lb)+0.13), label="Background VUS rate") +
-  annotate("segment",x=1.45, xend=1.45, y=hcm_line, yend=(hcm_path+hcm_lp), colour="black", size=1, arrow=arrow()) +
-  annotate("text", x=1.452, y=(hcm_path+hcm_lp-0.11), label="Case VUS excess")
+  geom_hline(yintercept=vus.prop,linetype = "longdash") +
+  geom_segment(aes(x=1.36,y=vus.hcm,xend=1.36,yend=(vus.prop+0.001))) +
+  geom_segment(aes(x=1.36,y=0,xend=1.36,yend=(vus.prop-0.001))) +
+  geom_segment(aes(x=1.33,y=(vus.prop-0.001),xend=1.39,yend=(vus.prop-0.001))) +
+  geom_segment(aes(x=1.33,y=(vus.prop+0.001),xend=1.39,yend=(vus.prop+0.001))) +
+  geom_segment(aes(x=1.33,y=vus.hcm,xend=1.39,yend=vus.hcm)) +
+  geom_segment(aes(x=1.33,y=0,xend=1.39,yend=0)) +
+  annotate("text",x=1.41,y=(vus.prop/2),label="Background VUS rate",size=3.5) +
+  annotate("text",x=1.41,y=(((vus.hcm-vus.prop)/2)+vus.prop),label="Case VUS excess",size=3.5) +
+  annotate("text",x=1.47,y=0,label="(a)",size=4) +
+  theme(legend.title=element_blank(),axis.title.y=element_blank(),axis.text.y=element_blank(),axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank(),panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank(),axis.text=element_text(size=12),
+        axis.title=element_text(size=12),legend.text=element_text(size=12))
 
-dcm_single<-ggplot(subset(data2, (Test=='DCM' & Cohort=='DCM')), aes(Cohort, Proportion)) +
-  geom_bar(aes(fill=Class), stat="identity", width=.8, color='black') +
-  scale_fill_manual(values=c("#AA3E39","#D46F6A","grey","#4D658D","#2D4671")) +
-  theme_classic() +
-  ggtitle("DCM") +
-  theme(axis.title.x=element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.y=element_blank(), legend.position="none") +
+vus.prop2<-data$Proportion[data$Class=='VUS' & data$Cohort=='HVOL' & data$Curated=='Y']
+vus.hcm2<-data$Proportion[data$Class=='VUS' & data$Cohort=='HCM' & data$Curated=='Y']
+
+curated<-ggplot(subset(data, (Cohort=='HCM' & Curated=='Y')), aes(Cohort, Proportion, fill=Class)) +
+  geom_bar(stat="identity", colour="black",width=0.74) +
+  scale_fill_manual(values=c('#8D1F18','#BC6157','grey')) +
+  ylab('Proportion of samples') +
+  ylim(0,0.45) +
   coord_flip() +
-  geom_hline(yintercept=dcm_line, linetype = "longdash") +
-  annotate("segment",x=1.45, xend=1.45, y=dcm_line, yend=(1-(dcm_ben+dcm_lb)), colour="black", size=1, arrow=arrow()) +
-  annotate("text", x=1.452, y=(1-(dcm_ben+dcm_lb)+0.13), label="Background VUS rate")
+  geom_hline(yintercept=vus.prop2,linetype = "longdash") +
+  #	geom_segment(aes(x=1.40,y=vus.hcm2,xend=1.40,yend=(vus.prop2+0.001))) +
+  #	geom_segment(aes(x=1.40,y=0,xend=1.40,yend=(vus.prop2-0.001))) +
+  #	geom_segment(aes(x=1.38,y=(vus.prop2-0.001),xend=1.42,yend=(vus.prop2-0.001))) +
+  #	geom_segment(aes(x=1.38,y=(vus.prop2+0.001),xend=1.42,yend=(vus.prop2+0.001))) +
+  #	geom_segment(aes(x=1.38,y=vus.hcm2,xend=1.42,yend=vus.hcm2)) +
+  #	geom_segment(aes(x=1.38,y=0,xend=1.42,yend=0)) +
+  #	annotate("text",x=1.45,y=(vus.prop2/2),label="Background VUS rate",size=3) +
+  #	annotate("text",x=1.45,y=(((vus.hcm2-vus.prop2)/2)+vus.prop2),label="Case VUS excess",size=3) +
+  annotate("text",x=1.47,y=0,label="(b)",size=4) +
+  theme(legend.title=element_blank(),axis.title.y=element_blank(),axis.text.y=element_blank(),axis.ticks.y=element_blank(),panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank(),axis.text=element_text(size=12),
+        axis.title=element_text(size=12),legend.text=element_text(size=12))
 
-legend_single <- g_legend(hcm_single)
-hcm_single_no_leg<-hcm_single + theme(legend.position="none")
+legend <- gtable_filter(ggplot_gtable(ggplot_build(curated + theme(legend.position="bottom"))), "guide-box")
+curated_print<-curated + theme(legend.position="none")
+not_curated_print<-not_curated + theme(legend.position="none")
 
-png("../figures/SingleStackedBars.png",width=1200,height=1000,res=150)
-grid.arrange(hcm_single_no_leg, dcm_single, legend_single, 
-             ncol=1, nrow=3, 
-             layout_matrix=rbind(c(1), c(2), c(3)), 
-             heights=c(10, 10, 1))
+png(file="../figures/SupplementaryFigure4.png",width=1000, height=500,res=120)
+grid.arrange(not_curated_print, curated_print, legend, ncol=1, heights=c(5,5,1))
 dev.off()
+
+supfig4 <- grid.arrange(not_curated_print, curated_print, legend, ncol=1, heights=c(5,5,1))
+

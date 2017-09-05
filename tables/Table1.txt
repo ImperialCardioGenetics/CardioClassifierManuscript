@@ -1,18 +1,12 @@
-Disease	DiseaseClass	Genes	TotalGenes
-DCM	Cardiomyopathy	LMNA,TNNT2,SCN5A,TTN,TCAP,MYH7,VCL,TPM1,TNNC1,RBM20,DSP,BAG3	12
-HCM	Cardiomyopathy	MYH7,TNNT2,TPM1,MYBPC3,PRKAG2,TNNI3,MYL3,MYL2,ACTC1,CSRP3,PLN,TNNC1,GLA,FHL1,LAMP2,GAA,TTR	17
-ARVD/C	Cardiomyopathy	DSP,PKP2,DSG2,DSC2,JUP	5
+Disease	Disease Class	Genes	Total Genes
+DCM	Cardiomyopathy	LMNA, TNNT2, SCN5A, TTN, TCAP, MYH7, VCL, TPM1, TNNC1, RBM20, DSP, BAG3	12
+HCM	Cardiomyopathy	MYH7, TNNT2, TPM1, MYBPC3, PRKAG2, TNNI3, MYL3, MYL2, ACTC1, CSRP3, PLN, TNNC1, GLA, FHL1, LAMP2, GAA	16
+ARVD/C	Cardiomyopathy	DSP, PKP2, DSG2, DSC2, JUP	5
 RCM	Cardiomyopathy	TNNI3	1
-ncCM	Cardiomyopathy	MYBPC3,MYH7	2
-Noonan syndrome	Cardiomyopathy	RAF1,SOS1,PTPN11,KRAS	4
-LQTS	Arrhythmia	KCNQ1,KCNH2,SCN5A,KCNE1,KCNE2	5
+LVNC	Cardiomyopathy	MYBPC3, MYH7	2
+Noonan syndrome	Cardiomyopathy	RAF1, SOS1, PTPN11, KRAS	4
+Long QT syndrome	Arrhythmia	KCNQ1, KCNH2, SCN5A, KCNE1, KCNE2	5
 Brugada syndrome	Arrhythmia	SCN5A	1
 CPVT	Arrhythmia	RYR2	1
-Marfans syndrome	Aortopathy	FBN1	1
-FH	-	LDLR	1
-Heterotaxy	-	ZIC3,CRELD1,NKX2-5,NODAL	1
-Alagille syndrome	-	JAG1	1
-Carney Complex	-	PRKAR1A	1
-Holt-Oram syndrome	-	TBX5	1
-Duane radial ray syndrome	-	SALL4	1
-Ulnar-Mammary syndrome	-	TBX3	1
+Marfan syndrome	Aortopathy	FBN1	1
+FH	Hypercholesterolemia	LDLR	1

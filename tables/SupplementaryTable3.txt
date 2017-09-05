@@ -1,0 +1,8 @@
+Disease	Number of Variants	CardioClassifier Path/LikelyPath	CardioClassifier Proportion	InterVar Path/LikelyPath	InterVar Proportion
+HCM	158	121	0.766	52	0.329
+DCM*	16	7	0.438	5	0.313
+ARVC	22	17	0.773	6	0.273
+LQTS	18	8	0.444	0	0
+CPVT	1	1	1	0	0
+BrS	4	2	0.5	1	0.25
+TOTAL	219	156	0.712	64	0.292

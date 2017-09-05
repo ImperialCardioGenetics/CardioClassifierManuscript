@@ -1,26 +1,44 @@
-Name	Affiliation	coFirst	coLast	Corresponding
-Nicola Whiffin	"National Heart & Lung Institute, Imperial College London"			
-Nicola Whiffin	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Nicola Whiffin	"MRC London Institute of Medical Sciences, Imperial College London"			
-Elizabeth Edwards	"National Heart & Lung Institute, Imperial College London"			
-Elizabeth Edwards	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Roddy Walsh	"National Heart & Lung Institute, Imperial College London"			
-Roddy Walsh	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Risha Govind	"National Heart & Lung Institute, Imperial College London"			
-Risha Govind	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Mian Ahman	"National Heart & Lung Institute, Imperial College London"			
-Mian Ahman	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Xiaolei Zhang	"National Heart & Lung Institute, Imperial College London"			
-Xiaolei Zhang	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Rachel Buchan	"National Heart & Lung Institute, Imperial College London"			
-Rachel Buchan	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Paul JR Barton, PhD	"National Heart & Lung Institute, Imperial College London"			
-Paul JR Barton, PhD	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-James S Ware, PhD, MRCP	"National Heart & Lung Institute, Imperial College London"			
-James S Ware, PhD, MRCP	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-James S Ware, PhD, MRCP	"MRC London Institute of Medical Sciences, Imperial College London"			
-James S Ware, PhD, MRCP	"Program in Medical and Population Genetics, Broad Institute of MIT & Harvard, Cambridge MA"			
-Stuart A Cook, PhD, MRCP	"National Heart & Lung Institute, Imperial College London"			
-Stuart A Cook, PhD, MRCP	"NIHR Royal Brompton Cardiovascular Biomedical Research Unit, Royal Brompton & Harefield Hospitals & Imperial College London"			
-Stuart A Cook, PhD, MRCP	"National Heart Centre Singapore, Singapore"			
-Stuart A Cook, PhD, MRCP	"Duke-National University of Singapore, Singapore"	
+Name	Affiliation	coLast	Corresponding
+Nicola Whiffin, PhD	National Heart & Lung Institute, Imperial College London		T
+Nicola Whiffin, PhD	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Nicola Whiffin, PhD	MRC London Institute of Medical Sciences, Imperial College London		
+Roddy Walsh, MSc	National Heart & Lung Institute, Imperial College London		
+Roddy Walsh, MSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Risha Govind, MSc	National Heart & Lung Institute, Imperial College London		
+Risha Govind, MSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Matthew Edwards, MSc	Clinical Genetics and Genomics Laboratory, Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Mian Ahmad, PhD	National Heart & Lung Institute, Imperial College London		
+Mian Ahmad, PhD	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Xiaolei Zhang, MSc	National Heart & Lung Institute, Imperial College London		
+Xiaolei Zhang, MSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Upasana Tayal, BMBCh, MRCP	National Heart & Lung Institute, Imperial College London		
+Upasana Tayal, BMBCh, MRCP	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Rachel Buchan, MSc	National Heart & Lung Institute, Imperial College London		
+Rachel Buchan, MSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+William Midwinter, BSc	National Heart & Lung Institute, Imperial College London		
+William Midwinter, BSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Alicja E Wilk, BSc	National Heart & Lung Institute, Imperial College London		
+Alicja E Wilk, BSc	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Hanna Najgebauer, PhD	National Heart & Lung Institute, Imperial College London		
+Hanna Najgebauer, PhD	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Catherine Francis, MA, MRCP	National Heart & Lung Institute, Imperial College London		
+Catherine Francis, MA, MRCP	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Sam Wilkinson, BSc	Clinical Genetics and Genomics Laboratory, Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Thomas Monk, MSc	Clinical Genetics and Genomics Laboratory, Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Laura Brett, MPhil	Clinical Genetics and Genomics Laboratory, Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Declan P O'Regan, PhD, FRCR	MRC London Institute of Medical Sciences, Imperial College London		
+Sanjay K Prasad, MD, FRCP	National Heart & Lung Institute, Imperial College London		
+Sanjay K Prasad, MD, FRCP	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Deborah J Morris-Rosendahl, PhD	National Heart & Lung Institute, Imperial College London			
+Deborah J Morris-Rosendahl, PhD	Clinical Genetics and Genomics Laboratory, Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Paul JR Barton, PhD	National Heart & Lung Institute, Imperial College London		
+Paul JR Barton, PhD	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Elizabeth Edwards, PhD	National Heart & Lung Institute, Imperial College London		
+Elizabeth Edwards, PhD	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+James S Ware, PhD, MRCP	National Heart & Lung Institute, Imperial College London	T	
+James S Ware, PhD, MRCP	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+James S Ware, PhD, MRCP	MRC London Institute of Medical Sciences, Imperial College London		
+Stuart A Cook, PhD, MRCP	National Heart & Lung Institute, Imperial College London	T	
+Stuart A Cook, PhD, MRCP	Cardiovascular Research Centre at Royal Brompton and Harefield NHS Foundation Trust, London, UK		
+Stuart A Cook, PhD, MRCP	National Heart Centre Singapore, Singapore		
+Stuart A Cook, PhD, MRCP	Duke-National University of Singapore, Singapore		

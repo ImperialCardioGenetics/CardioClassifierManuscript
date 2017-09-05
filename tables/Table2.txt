@@ -1,8 +1,9 @@
-		Clinvar Clinical Significance	
-	Classifier Output	Pathogenic	Likely Pathogenic
-No Paralogue Annotation	Pathogenic	0	8
-	Likely Pathogenic	11	36
-	Uncertain Significance	24	40
-With Paralogue Annotation	Pathogenic	0	11
-	Likely Pathogenic	15	41
-	Uncertain Significance	20	32
+Feature	Description	Cardio Classifier	Alamut	InterVar	ClinGen Pathogenicity Calculator
+Collates data from multiple sources	CardioClassifier retrieves data from multiple databases/resources including ExAC, ClinVar, ACGV and dbNSFP as well as internally derived data	✓	✓	✓	-
+Takes a standard VCF or variant details as input and annotates with effect on sequence and protein	The Ensembl Variant Effect Predictor is used to annotate all variants according to protein consequence	✓	✓	✓	-
+ACMG/AMP rules parameterised through expert curation according to specific gene and disease	We have developed expertly-curated gene and disease-specific thresholds for 14 computational ACMG/AMP criteria in addition to 3 specifically created ICC specific rules	✓	-	-	-
+Computational data used to activate ACMG/AMP rules	Each variant is automatically assessed against 17 computational criteria	✓	-	✓	-
+Interactive refinement of rules and addition of case-level data	Users can interactively add or remove evidence pertaining to any of the ACMG/AMP rules	✓	-	✓	✓
+Integration of automated annotations and case-level interactive additions to calculate a classification according to the ACMG logic	The logic from the ACMG/AMP guidelines is used to provide a final classification	✓	-	✓	-
+Evidence used to generate classification displayed	The thresholds and data used in CardioClassifier is transparent and printed on the report	✓	-	-	-
+Knowledge base of case-level annotations	We have created a 'knowledge base' whereby manually curated case-level evidence is stored and used to populate variant reports	✓	-	-	-

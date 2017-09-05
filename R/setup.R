@@ -32,7 +32,8 @@ if(!"knitauthors" %in% installed.packages()){
   if(!"devtools" %in% installed.packages()){
     install.packages("devtools")
   }
-  withr::with_libpaths(new = "../repoPackageLibrary/", devtools::install_github("jamesware/knitauthors",force=T), action= "prefix")
+  library(devtools)
+  devtools::install_github("jamesware/knitauthors",force=T)
 }
 
 ## Set up citations
