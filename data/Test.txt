@@ -1,6 +1,0 @@
-Cohort	Test	Class	Proportion
-HCM	HCM	Pathogenic	0.025
-HCM	HCM	Likely Pathogenic	0.193
-HCM	HCM	VUS	0.215
-HCM	HCM	Likely Benign	0.000
-HCM	HCM	Benign	0.567
